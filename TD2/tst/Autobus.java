@@ -20,8 +20,16 @@ class Autobus {
   static final byte PLEIN  = 4;
   byte status;
 
-  final Messages messages = new Messages();
 
+  /**private:
+
+  int max_assis;
+  int max_debout;
+
+
+  public :**/
+
+  final Messages messages = new Messages();
   Autobus() {
     status = VIDE;
   }
@@ -30,8 +38,13 @@ class Autobus {
     status = init;
   }
 
+  Autobus(int assis, int debout)
+  {
+    
+  }
+
   public boolean aPlaceAssise() {
-    return status == ASSIS 
+	return status == ASSIS 
       || status == VIDE;
   }
 
