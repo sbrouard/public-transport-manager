@@ -1,3 +1,5 @@
+package tec;
+
 class Position {
 
   private final int DEHORS = 1;
