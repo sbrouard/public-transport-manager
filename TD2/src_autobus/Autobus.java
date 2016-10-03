@@ -16,15 +16,15 @@ public class Autobus {
 
 
   final Messages messages = new Messages();
-  Autobus() {
+  public Autobus() {
     status = VIDE;
   }
 
-  Autobus(byte init) {
+  public Autobus(byte init) {
     status = init;
   }
 
-  Autobus(int assis, int debout)
+  public Autobus(int assis, int debout)
   {
 	  nb_debout = debout;
 	  nb_assis = assis;

@@ -5,7 +5,7 @@ public class PassagerStandard {
     String name;
     int dst;
 
-    PassagerStandard(String nom, int destination) {
+    public PassagerStandard(String nom, int destination) {
 	name = nom;
 	dst = destination;
 	pos = new Position();
