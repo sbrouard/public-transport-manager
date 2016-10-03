@@ -54,8 +54,8 @@ public class PassagerStandard {
     // Indique au passager qu'il est arrivé à un nouvel arret
     public void nouvelArret(Autobus bus, int numeroArret) {
     }
-    /*
+    
     public String toString() {
-	return;
-	}*/
+	return "";
+	}
 }
