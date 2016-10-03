@@ -44,6 +44,12 @@ public class PassagerStandard {
 
     // Fournit a un passager l'autobus auquel il peut accéder
     public void monterDans(Autobus t) {
+	if (t.aPlaceAssise()){
+	    t.monteeDemanderAssis(this);
+		}
+	else if (t.aPlaceDebout()){
+	    t.monteeDemanderDebout(this);
+	    }
     }
 
     // Fournit le nom d'un passager
