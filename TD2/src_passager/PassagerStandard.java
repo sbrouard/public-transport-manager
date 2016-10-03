@@ -59,6 +59,7 @@ public class PassagerStandard {
     
     // Indique au passager qu'il est arrivé à un nouvel arret
     public void nouvelArret(Autobus bus, int numeroArret) {
+	if (numeroArret == dst) bus.arretDemanderSortie(this);
     }
     
     public String toString() {
