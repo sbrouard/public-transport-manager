@@ -23,7 +23,7 @@ class TestPassagerStandard {
 
     //********* Verifier les interactions  *************
     System.out.print('.'); nbTest++;
-    //new TestPassagerStandard().testInteractionMontee();
+    new TestPassagerStandard().testInteractionMontee();
 
     System.out.print('.'); nbTest++;
     //new TestPassagerStandard().testInteractionArret();
