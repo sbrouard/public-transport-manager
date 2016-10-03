@@ -34,7 +34,7 @@ public class PassagerStandard {
     
     // Le passager est-il debout dans l'autobus ?
     public boolean estDebout() {
-	return pos.estDebout();;
+	return pos.estDebout();
     }
 
     // Le passager est-il en dehors d'un autobus ?
