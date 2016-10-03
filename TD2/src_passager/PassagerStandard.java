@@ -46,15 +46,15 @@ public class PassagerStandard {
     public void monterDans(Autobus t) {
 	if (t.aPlaceAssise()){
 	    t.monteeDemanderAssis(this);
-		}
+	}
 	else if (t.aPlaceDebout()){
 	    t.monteeDemanderDebout(this);
-	    }
+	}
     }
 
     // Fournit le nom d'un passager
     public String nom() {
-	return this.name;
+	return name;
     }
     
     // Indique au passager qu'il est arrivé à un nouvel arret
@@ -63,6 +63,6 @@ public class PassagerStandard {
     }
     
     public String toString() {
-	return "";
-	}
+	return name + pos.toString();
+    }
 }

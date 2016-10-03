@@ -1,3 +1,5 @@
+package tec;
+
 class Simple {
     
     public void testIntegration() {
@@ -82,7 +84,7 @@ class Simple {
 	     return; 
 	 }
 	
-	 Simple simple = new Simple();
-	 simple.testIntegration();
+	 Simple test1 = new Simple();
+	 test1.testIntegration();
     }
 }
