@@ -1,6 +1,16 @@
 package tec;
 
 public class PassagerStandard() {
+    Position pos;
+    String name;
+    int dst;
+
+    PassagerStandard(String nom, int destination) {
+	name = nom;
+	dst = destination;
+	pos = new Position();
+    }
+    
 
     // Change la position d'un passager en assis
     public void changerEnAssis() {
