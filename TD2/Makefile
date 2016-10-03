@@ -1,13 +1,12 @@
 
-
 all: test
 
-test:test_autobus test_passager
+test:test_autobus_mock test_passager_mock
 
-test_autobus: build/Messages.class build/PassagerStandard.class build/Autobus.class build/TestAutobus.class
+test_autobus_mock: build/Messages.class build/PassagerStandard.class build/Autobus.class build/TestAutobus.class
 	java -ea -cp build tec.TestAutobus
 
-test_passager: build/Messages.class build/PassagerStandard.class build/Autobus.class build/TestAutobus.class
+test_passager_mock: build/Messages.class build/PassagerStandard.class build/Autobus.class build/TestAutobus.class
 	java -ea -cp build tec.PassagerStandard
 
 build/PassagerStandard.class:
