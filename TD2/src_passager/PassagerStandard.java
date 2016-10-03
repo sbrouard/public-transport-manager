@@ -47,7 +47,7 @@ public class PassagerStandard {
     }
 
     // Fournit le nom d'un passager
-      public String nom() {
+    public String nom() {
 	return this.name;
     }
     

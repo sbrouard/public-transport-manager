@@ -23,10 +23,10 @@ class TestPassagerStandard {
 
     //********* Verifier les interactions  *************
     System.out.print('.'); nbTest++;
-    new TestPassagerStandard().testInteractionMontee();
+    //new TestPassagerStandard().testInteractionMontee();
 
     System.out.print('.'); nbTest++;
-    new TestPassagerStandard().testInteractionArret();
+    //new TestPassagerStandard().testInteractionArret();
 
     System.out.println("(" + nbTest + "):OK: " + "tec.PassagerStandard"); 
   }
@@ -105,5 +105,5 @@ class TestPassagerStandard {
 
     p.nouvelArret(faux, 5);
     assert "arretDemanderSortie" == faux.messages.getLast() : "destination";    
-  }
+    }
 }
