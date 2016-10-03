@@ -1,13 +1,11 @@
-
-
 class Simple {
     
     public void testIntegration() {
-	Autobus serenity = new Autobus(1, 2);
+	tec.Autobus serenity = new tec.Autobus(1, 2);
 	
-	PassagerStandard kaylee = new PassagerStandard("Kaylee", 4);
-	PassagerStandard jayne = new PassagerStandard("Jayne", 4);
-	PassagerStandard inara = new PassagerStandard("Inara", 5);
+	tec.PassagerStandard kaylee = new tec.PassagerStandard("Kaylee", 4);
+	tec.PassagerStandard jayne = new tec.PassagerStandard("Jayne", 4);
+	tec.PassagerStandard inara = new tec.PassagerStandard("Inara", 5);
     
 	//0
 	serenity.toString();
