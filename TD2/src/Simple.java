@@ -1,4 +1,4 @@
-package tec;
+
 
 class Simple {
     

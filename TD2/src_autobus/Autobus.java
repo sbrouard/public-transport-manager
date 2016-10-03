@@ -1,6 +1,6 @@
 package tec;
 
-class Autobus {
+public class Autobus {
   static final byte VIDE   = 0;
   static final byte DEBOUT = 1;
   static final byte ASSIS  = 2;
