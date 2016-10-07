@@ -9,7 +9,7 @@ test_autobus_mock: build/Messages.class build/AutobusMock.class build/TestAutobu
 test_passager_mock: build/Messages.class build/PassagerStandardMock.class build/TestPassagerStandard.class
 	java -ea -cp build tec.TestPassagerStandard
 
-test_autobus: build/Messages.class build/Autobus.class build/TestAutobus.class
+test_autobus: build/Jauge.class build/Messages.class build/Autobus.class build/TestAutobus.class
 	java -ea -cp build tec.TestAutobus
 
 test_passager: build/Messages.class build/Position.class build/PassagerStandard.class build/TestPassagerStandard.class

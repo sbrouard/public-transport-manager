@@ -1,28 +1,16 @@
 package tec;
 
 public class Autobus {
-  static final byte VIDE   = 0;
-  static final byte DEBOUT = 1;
-  static final byte ASSIS  = 2;
-  static final byte PLEIN  = 4;
-  private byte status;
-  private int nb_debout;
-  private int nb_debout_left;
-  private int nb_assis;
-  private int nb_assis_left;
   private int numero_arret;
   private PassagerStandard[] passagers;
-
+  private Jauge my_debout;
+  private Jauge my_assis;
+  private int nb_debout;
+  private int nb_assis;
+  private int index;
 
 
   final Messages messages = new Messages();
-  public Autobus() {
-    status = VIDE;
-  }
-
-  public Autobus(byte init) {
-    status = init;
-  }
 
   public Autobus(int assis, int debout)
   {
@@ -30,83 +18,83 @@ public class Autobus {
 	  nb_assis = assis;
 	  passagers = new PassagerStandard[nb_debout+nb_assis];
 	  numero_arret = 0;
+	  index = 0;
 
-	  nb_debout_left = debout;
-	  nb_assis_left = assis;
-	  
-	  if(nb_debout+nb_assis > 0)
-	  {
-		  status = VIDE;
-	  }
+	  if(debout <= 0)
+		my_debout = null;
 	  else
-	  {
-		  status = PLEIN;
-	  }
+	  	my_debout = new Jauge(debout,0);
+
+	  if(assis <= 0)
+	  	my_assis = null;
+	  else
+	  	my_assis = new Jauge(assis,0);
   }
 
-  public boolean aPlaceAssise() {
-	return status == ASSIS 
-      || status == VIDE;
+  public boolean aPlaceAssise()
+  {
+	if(my_assis == null)
+		return false;
+	if(my_assis.estRouge())
+		return false;
+	else
+		return true;
   }
 
-  public boolean aPlaceDebout() {
-    return status == DEBOUT 
-      || status == VIDE;
+  public boolean aPlaceDebout()
+ {
+
+	if(my_debout == null)
+		return false;
+	if(my_debout.estRouge())
+		return false;
+	else
+		return true;
   }
 
   // Enregistrements des appels effectues par PassagerStandard.
   public void monteeDemanderAssis(PassagerStandard p)
   {
-	  if(p.estDehors())
+	  if(aPlaceAssise())
 	  {
-		  if(aPlaceAssise())
-		  {
-			  p.changerEnAssis();
-			  nb_assis_left--;
-			  statusChanged();
-			  ajouterPassager(p);
-		  }
+		  p.changerEnAssis();
+		  ajouterPassager(p);
+		  my_assis.incrementer();
 	  }
   }
 
   public void monteeDemanderDebout(PassagerStandard p)
   {
-	  if(p.estDehors())
+	  if(aPlaceDebout())
 	  {
-		  if(aPlaceDebout())
-		  {
-			  p.changerEnDebout();
-			  nb_debout_left--;
-			  statusChanged();
-			  ajouterPassager(p);
-		  }
+		  p.changerEnDebout();
+		  ajouterPassager(p);
+		  my_debout.incrementer();
 	  }
   }
 
   public void arretDemanderDebout(PassagerStandard p)
   {
-	  if(aPlaceAssise())
+	  if(aPlaceDebout())
 	  {
 		  if(p.estAssis())
 		  {
 			p.changerEnDebout();
-			nb_assis_left++;
-			nb_debout_left--;
-			statusChanged();
+			my_debout.incrementer();
+			my_assis.decrementer();
 		  }
 	  }
   }
   
   public void arretDemanderAssis(PassagerStandard p)
   {
-	  if(aPlaceDebout())
+	  if(aPlaceAssise())
 	  {
 		  if(p.estDebout())
 		  {
 			p.changerEnAssis();
-			nb_assis_left--;
-			nb_debout_left++;
-			statusChanged();
+			my_assis.incrementer();
+			my_debout.decrementer();
 		  }
 	  }
   }
@@ -115,59 +103,43 @@ public class Autobus {
   {
 	  if(!p.estDehors())
 	  {
+		if(p.estAssis())
+			my_assis.decrementer();
+		else
+			my_debout.decrementer();
 	  	p.changerEnDehors();
 		enleverPassager(p);
 	  }
   }
 
-  private void statusChanged()
-  {
-	  if(nb_debout_left == 0)
-		  status &= DEBOUT^0xff;
-	  else
-	  {
-		  status &= PLEIN^0xff;
-		  status |= DEBOUT;
-	  }
-
-	  if(nb_assis_left == 0)
-		  status &= ASSIS^0xff;
-	  else
-	  {
-		  status &= PLEIN^0xff;
-		  status |= ASSIS;
-	  }
-
-	  if(nb_assis_left == nb_assis && nb_debout_left == nb_debout)
-		  status = VIDE;
-	  if(status == 0)
-		  status = PLEIN;
-  }
 
   private void ajouterPassager(PassagerStandard p)
   {
-	passagers[nb_assis_left+nb_debout_left-1] = p;
+	passagers[index] = p;
+	index++;
   }
 
   private void enleverPassager(PassagerStandard p)
   {
 	  int decal = 0;
 
-	  for(int i=nb_assis+nb_debout-1;i>0;i--)
+	  for(int i=0;i<index;i++)
 	  {
+		  if(decal == 1)
+			  passagers[i-1] = passagers[i];
+
 		  if(passagers[i] == p)
 			  decal = 1;
 
-		  if(decal == 1)
-			  passagers[i-1] = passagers[i];
 	  }
-	  passagers[0] = null;
+	  passagers[index-1] = null;
+	  index--;
   }
 
   // PassagerStandard n'utilise pas cette méthode.
   public void allerArretSuivant()
   { 
-	  for(int i=nb_assis+nb_debout-1;i>=0 && passagers[i] != null;i--)
+	  for(int i=0;i<index;i++)
 	  {
 		passagers[i].nouvelArret(this,numero_arret);
 	  }
