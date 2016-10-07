@@ -16,7 +16,7 @@ test_passager: build/Messages.class build/Position.class build/PassagerStandard.
 	java -ea -cp build tec.TestPassagerStandard
 
 simple: build/Messages.class build/Position.class build/AutobusPassagerStandard.class build/Simple.class
-	java -ea -cp build tec.Simple
+	java -ea -cp build Simple
 
 build/PassagerStandardMock.class:
 	javac -d build -cp build tst/PassagerStandard.java src/Autobus.java
