@@ -7,7 +7,6 @@ public class Autobus {
   private Jauge my_assis;
   private int nb_debout;
   private int nb_assis;
-  private int index;
 
 
   final Messages messages = new Messages();
@@ -18,7 +17,9 @@ public class Autobus {
 	  nb_assis = assis;
 	  passagers = new PassagerStandard[nb_debout+nb_assis];
 	  numero_arret = 0;
-	  index = 0;
+
+	  for(int i=0;i<nb_debout+nb_assis;i++)
+		passagers[i] = null;
 
 	  if(debout <= 0)
 		my_debout = null;
@@ -101,54 +102,49 @@ public class Autobus {
 
   public void arretDemanderSortie(PassagerStandard p)
   {
-	  if(!p.estDehors())
-	  {
-		if(p.estAssis())
-			my_assis.decrementer();
-		else
-			my_debout.decrementer();
-	  	p.changerEnDehors();
-		enleverPassager(p);
-	  }
+	if(p.estAssis())
+		my_assis.decrementer();
+	else
+		my_debout.decrementer();
+	p.changerEnDehors();
+	enleverPassager(p);
   }
 
 
   private void ajouterPassager(PassagerStandard p)
   {
-	passagers[index] = p;
-	index++;
+	int i;
+
+	for(i=0;passagers[i]!=null;i++);
+
+	passagers[i] = p;
   }
 
   private void enleverPassager(PassagerStandard p)
   {
 	  int decal = 0;
+	  int i;
 
-	  for(int i=0;i<index;i++)
-	  {
-		  if(decal == 1)
-			  passagers[i-1] = passagers[i];
+	  for(i=0;passagers[i]!=p;i++);
+		
 
-		  if(passagers[i] == p)
-			  decal = 1;
-
-	  }
-	  passagers[index-1] = null;
-	  index--;
+	  passagers[i] = null;
   }
 
   // PassagerStandard n'utilise pas cette méthode.
   public void allerArretSuivant()
   { 
-	  for(int i=0;i<index;i++)
-	  {
-		passagers[i].nouvelArret(this,numero_arret);
-	  }
 	  numero_arret++;
+	  for(int i=0;i<nb_assis+nb_debout;i++)
+	  {
+		if(passagers[i] != null)
+			 passagers[i].nouvelArret(this,numero_arret);
+	  }
   }
 
   @Override
   public String toString()
   {
-	return "[arret "+numero_arret+"] assis<"+nb_assis+"> debout<"+nb_debout+">";
+	return "[arret "+numero_arret+"] assis"+my_assis.toString()+" debout"+my_debout.toString()+"";
   }
 }

@@ -1,5 +1,4 @@
 package tec;
-
 /**
  * Réalisation d'une jauge avec un intervalle d'entiers.
  * <p>
@@ -83,6 +82,6 @@ class Jauge {
    */
   @Override
   public String toString() {
-    return "<" + valeur + " [0," + max + "[>"; 
+    return "<" + (max-valeur) + ">"; 
   }
 }

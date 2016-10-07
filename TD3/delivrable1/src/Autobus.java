@@ -1,148 +1,80 @@
 package tec;
 
-public class Autobus {
-  private int numero_arret;
-  private PassagerStandard[] passagers;
-  private Jauge my_debout;
-  private Jauge my_assis;
-  private int nb_debout;
-  private int nb_assis;
-  private int index;
+/**
+ * Classe faussaire pour le test unitaire fonctionnel
+ * de PassagerStandard
+ *
+ * Ce faussaire ne declenche pas d'appel aux methodes
+ * de PassagerStandard.
+ *
+ * Il ne change pas son etat (la variable d'instance status). 
+ * C'est le test qui change directement la valeur de cette variable. 
+ *
+ * Il enregistre l'appel aux méthodes qui
+ * doivent modifier son etat.
+ */
+class Autobus {
+  static final byte VIDE   = 0;
+  static final byte DEBOUT = 1;
+  static final byte ASSIS  = 2;
+  static final byte PLEIN  = 4;
+  byte status;
 
+
+  /**private:
+
+  int max_assis;
+  int max_debout;
+
+
+  public :**/
 
   final Messages messages = new Messages();
-
-  public Autobus(int assis, int debout)
-  {
-	  nb_debout = debout;
-	  nb_assis = assis;
-	  passagers = new PassagerStandard[nb_debout+nb_assis];
-	  numero_arret = 0;
-	  index = 0;
-
-	  if(debout <= 0)
-		my_debout = null;
-	  else
-	  	my_debout = new Jauge(debout,0);
-
-	  if(assis <= 0)
-	  	my_assis = null;
-	  else
-	  	my_assis = new Jauge(assis,0);
+  Autobus() {
+    status = VIDE;
   }
 
-  public boolean aPlaceAssise()
-  {
-	if(my_assis == null)
-		return false;
-	if(my_assis.estRouge())
-		return false;
-	else
-		return true;
+  Autobus(byte init) {
+    status = init;
   }
 
-  public boolean aPlaceDebout()
- {
+  Autobus(int assis, int debout)
+  {
+    
+  }
 
-	if(my_debout == null)
-		return false;
-	if(my_debout.estRouge())
-		return false;
-	else
-		return true;
+  public boolean aPlaceAssise() {
+	return status == ASSIS 
+      || status == VIDE;
+  }
+
+  public boolean aPlaceDebout() {
+    return status == DEBOUT 
+      || status == VIDE;
   }
 
   // Enregistrements des appels effectues par PassagerStandard.
-  public void monteeDemanderAssis(PassagerStandard p)
-  {
-	  if(aPlaceAssise())
-	  {
-		  p.changerEnAssis();
-		  ajouterPassager(p);
-		  my_assis.incrementer();
-	  }
+  public void monteeDemanderAssis(PassagerStandard p) {
+    messages.add("monteeDemanderAssis");
   }
 
-  public void monteeDemanderDebout(PassagerStandard p)
-  {
-	  if(aPlaceDebout())
-	  {
-		  p.changerEnDebout();
-		  ajouterPassager(p);
-		  my_debout.incrementer();
-	  }
+  public void monteeDemanderDebout(PassagerStandard p) {
+    messages.add("monteeDemanderDebout");
   }
 
-  public void arretDemanderDebout(PassagerStandard p)
-  {
-	  if(aPlaceDebout())
-	  {
-		  if(p.estAssis())
-		  {
-			p.changerEnDebout();
-			my_debout.incrementer();
-			my_assis.decrementer();
-		  }
-	  }
+  public void arretDemanderDebout(PassagerStandard p) {
+    messages.add("arretDemanderDebout");
   }
   
-  public void arretDemanderAssis(PassagerStandard p)
-  {
-	  if(aPlaceAssise())
-	  {
-		  if(p.estDebout())
-		  {
-			p.changerEnAssis();
-			my_assis.incrementer();
-			my_debout.decrementer();
-		  }
-	  }
+  public void arretDemanderAssis(PassagerStandard p) {
+    messages.add("arretDemanderAssis");
   }
 
-  public void arretDemanderSortie(PassagerStandard p)
-  {
-	  if(!p.estDehors())
-	  {
-		if(p.estAssis())
-			my_assis.decrementer();
-		else
-			my_debout.decrementer();
-	  	p.changerEnDehors();
-		enleverPassager(p);
-	  }
-  }
-
-
-  private void ajouterPassager(PassagerStandard p)
-  {
-	passagers[index] = p;
-	index++;
-  }
-
-  private void enleverPassager(PassagerStandard p)
-  {
-	  int decal = 0;
-
-	  for(int i=0;i<index;i++)
-	  {
-		  if(decal == 1)
-			  passagers[i-1] = passagers[i];
-
-		  if(passagers[i] == p)
-			  decal = 1;
-
-	  }
-	  passagers[index-1] = null;
-	  index--;
+  public void arretDemanderSortie(PassagerStandard p) {
+    messages.add("arretDemanderSortie");    
   }
 
   // PassagerStandard n'utilise pas cette méthode.
-  public void allerArretSuivant()
-  { 
-	  for(int i=0;i<index;i++)
-	  {
-		passagers[i].nouvelArret(this,numero_arret);
-	  }
-	  numero_arret++;
+  public void allerArretSuivant() { 
   }
 }
