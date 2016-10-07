@@ -15,7 +15,7 @@ test_autobus: build/Jauge.class build/Messages.class build/Autobus.class build/T
 test_passager: build/Messages.class build/Position.class build/PassagerStandard.class build/TestPassagerStandard.class
 	java -ea -cp build tec.TestPassagerStandard
 
-simple: build/Messages.class build/Position.class build/AutobusPassagerStandard.class build/Simple.class
+simple: build/Messages.class build/Position.class build/Jauge.class build/AutobusPassagerStandard.class build/Simple.class
 	java -ea -cp build Simple
 
 build/PassagerStandardMock.class:

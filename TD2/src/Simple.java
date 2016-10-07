@@ -11,47 +11,49 @@ class Simple {
 	PassagerStandard inara = new PassagerStandard("Inara", 5);
     
 	//0
-	serenity.toString();
+	System.out.println(serenity.toString());
 	
 	//1
 	serenity.allerArretSuivant();
 	kaylee.monterDans(serenity);
 	
-	serenity.toString();
-	kaylee.toString();
+	System.out.println(serenity.toString());
+	System.out.println(kaylee.toString());
 	
 	//2
 	serenity.allerArretSuivant();
 	jayne.monterDans(serenity);
 	
-	serenity.toString();
-	kaylee.toString();
-	jayne.toString();
+	System.out.println(serenity.toString());
+	System.out.println(kaylee.toString());
+	System.out.println(jayne.toString());
 	
 	//3
 	serenity.allerArretSuivant();
 	inara.monterDans(serenity);
 	
-	serenity.toString();
-	kaylee.toString();
-	jayne.toString();
-	inara.toString();
+	System.out.println(serenity.toString());
+	System.out.println(kaylee.toString());
+	System.out.println(jayne.toString());
+	System.out.println(inara.toString());
 
 	//4
 	serenity.allerArretSuivant();
 	
-	serenity.toString();
-	kaylee.toString();
-	jayne.toString();
-	inara.toString();
+	
+	System.out.println(serenity.toString());
+	System.out.println(kaylee.toString());
+	System.out.println(jayne.toString());
+	System.out.println(inara.toString());
+
 
 	//5
 	serenity.allerArretSuivant();
 	
-	serenity.toString();
-	kaylee.toString();
-	jayne.toString();
-	inara.toString();
+	System.out.println(serenity.toString());
+	System.out.println(kaylee.toString());
+	System.out.println(jayne.toString());
+	System.out.println(inara.toString());
 	
 	/* Resulat de l'execution.
 	   [arret 0] assis<1> debout<2>

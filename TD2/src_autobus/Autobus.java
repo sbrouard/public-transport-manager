@@ -146,7 +146,7 @@ public class Autobus {
 	  numero_arret++;
   }
 
-  @overide
+  @Override
   public String toString()
   {
 	return "[arret "+numero_arret+"] assis<"+nb_assis+"> debout<"+nb_debout+">";
