@@ -11,11 +11,21 @@ test_autobus:
 test_simple:
 	java -ea -cp build:build-autobusTest Simple
 
+test_jauge:
+	java -ea -cp build tec.TestJauge
+
+test_position: 
+	java -ea -cp build tec.TestPosition
+
 autobus : build/MessagesA.class build/Jauge.class build/AutobusMock.class build/TestAutobus.class
 
 passager : build/MessagesP.class build/Position.class build/PassagerStandardMock.class build/TestPassagerStandard.class
 
 simple: build/MessagesA.class build/Jauge.class build/Position.class build/AutobusPassagerStandard.class build/Simple.class
+
+position: build/Position.class build/TestPosition.class
+
+jauge: build/Jauge.class build/TestJauge.class
 
 build/AutobusMock.class:
 	javac -d build -cp build-autobusTest:build src/Autobus.java src/faussaires/PassagerStandard.java && mv build/tec/PassagerStandard.class build-autobusTest/tec/
@@ -43,6 +53,9 @@ build/Simple.class:
 
 build/%.class: src/%.java
 	javac -d build src/$*.java
+
+build/%.class: tst/%.java
+	javac -d build -cp build tst/$*.java
 
 clear:
 	rm -rf build/* build-autobusTest/* build-passagerTest/*
