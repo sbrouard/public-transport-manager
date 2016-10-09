@@ -1,3 +1,5 @@
+package tec;
+
 class TestJauge {
 
 	static void testDansIntervalle()
