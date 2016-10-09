@@ -1,80 +1,150 @@
 package tec;
 
-/**
- * Classe faussaire pour le test unitaire fonctionnel
- * de PassagerStandard
- *
- * Ce faussaire ne declenche pas d'appel aux methodes
- * de PassagerStandard.
- *
- * Il ne change pas son etat (la variable d'instance status). 
- * C'est le test qui change directement la valeur de cette variable. 
- *
- * Il enregistre l'appel aux méthodes qui
- * doivent modifier son etat.
- */
-class Autobus {
-  static final byte VIDE   = 0;
-  static final byte DEBOUT = 1;
-  static final byte ASSIS  = 2;
-  static final byte PLEIN  = 4;
-  byte status;
+public class Autobus {
+  private int numero_arret;
+  private PassagerStandard[] passagers;
+  private Jauge my_debout;
+  private Jauge my_assis;
+  private int nb_debout;
+  private int nb_assis;
 
-
-  /**private:
-
-  int max_assis;
-  int max_debout;
-
-
-  public :**/
 
   final Messages messages = new Messages();
-  Autobus() {
-    status = VIDE;
-  }
 
-  Autobus(byte init) {
-    status = init;
-  }
-
-  Autobus(int assis, int debout)
+  public Autobus(int assis, int debout)
   {
-    
+	  nb_debout = debout;
+	  nb_assis = assis;
+	  passagers = new PassagerStandard[nb_debout+nb_assis];
+	  numero_arret = 0;
+
+	  for(int i=0;i<nb_debout+nb_assis;i++)
+		passagers[i] = null;
+
+	  if(debout <= 0)
+		my_debout = null;
+	  else
+	  	my_debout = new Jauge(debout,0);
+
+	  if(assis <= 0)
+	  	my_assis = null;
+	  else
+	  	my_assis = new Jauge(assis,0);
   }
 
-  public boolean aPlaceAssise() {
-	return status == ASSIS 
-      || status == VIDE;
+  public boolean aPlaceAssise()
+  {
+	if(my_assis == null)
+		return false;
+	if(my_assis.estRouge())
+		return false;
+	else
+		return true;
   }
 
-  public boolean aPlaceDebout() {
-    return status == DEBOUT 
-      || status == VIDE;
+  public boolean aPlaceDebout()
+ {
+
+	if(my_debout == null)
+		return false;
+	if(my_debout.estRouge())
+		return false;
+	else
+		return true;
   }
 
   // Enregistrements des appels effectues par PassagerStandard.
-  public void monteeDemanderAssis(PassagerStandard p) {
-    messages.add("monteeDemanderAssis");
+  public void monteeDemanderAssis(PassagerStandard p)
+  {
+	  if(aPlaceAssise())
+	  {
+		  p.changerEnAssis();
+		  ajouterPassager(p);
+		  my_assis.incrementer();
+	  }
   }
 
-  public void monteeDemanderDebout(PassagerStandard p) {
-    messages.add("monteeDemanderDebout");
+  public void monteeDemanderDebout(PassagerStandard p)
+  {
+	  if(aPlaceDebout())
+	  {
+		  p.changerEnDebout();
+		  ajouterPassager(p);
+		  my_debout.incrementer();
+	  }
   }
 
-  public void arretDemanderDebout(PassagerStandard p) {
-    messages.add("arretDemanderDebout");
+  public void arretDemanderDebout(PassagerStandard p)
+  {
+	  if(aPlaceDebout())
+	  {
+		  if(p.estAssis())
+		  {
+			p.changerEnDebout();
+			my_debout.incrementer();
+			my_assis.decrementer();
+		  }
+	  }
   }
   
-  public void arretDemanderAssis(PassagerStandard p) {
-    messages.add("arretDemanderAssis");
+  public void arretDemanderAssis(PassagerStandard p)
+  {
+	  if(aPlaceAssise())
+	  {
+		  if(p.estDebout())
+		  {
+			p.changerEnAssis();
+			my_assis.incrementer();
+			my_debout.decrementer();
+		  }
+	  }
   }
 
-  public void arretDemanderSortie(PassagerStandard p) {
-    messages.add("arretDemanderSortie");    
+  public void arretDemanderSortie(PassagerStandard p)
+  {
+	if(p.estAssis())
+		my_assis.decrementer();
+	else
+		my_debout.decrementer();
+	p.changerEnDehors();
+	enleverPassager(p);
+  }
+
+
+  private void ajouterPassager(PassagerStandard p)
+  {
+	int i;
+
+	for(i=0;passagers[i]!=null;i++);
+
+	passagers[i] = p;
+  }
+
+  private void enleverPassager(PassagerStandard p)
+  {
+	  int decal = 0;
+	  int i;
+
+	  for(i=0;passagers[i]!=p;i++);
+		
+
+	  passagers[i] = null;
   }
 
   // PassagerStandard n'utilise pas cette méthode.
-  public void allerArretSuivant() { 
+  public void allerArretSuivant()
+  { 
+	  numero_arret++;
+	  for(int i=0;i<nb_assis+nb_debout;i++)
+	  {
+		if(passagers[i] != null)
+			 passagers[i].nouvelArret(this,numero_arret);
+	  }
+  }
+
+  @Override
+  public String toString()
+  {
+	return "[arret "+numero_arret+"] assis"+my_assis.toString()+" debout"+my_debout.toString()+"";
   }
 }

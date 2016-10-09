@@ -4,7 +4,7 @@ import tec.Autobus;
 class Simple {
     
     public void testIntegration() {
-	Autobus serenity = new tec.Autobus(1, 2);
+	Autobus serenity = new Autobus(1, 2);
 	
 	PassagerStandard kaylee = new PassagerStandard("Kaylee", 4);
 	PassagerStandard jayne = new PassagerStandard("Jayne", 4);
