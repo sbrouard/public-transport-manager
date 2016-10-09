@@ -46,14 +46,18 @@ class PassagerStandard {
 
   // Enregistrements des appels effectues par Autobus.
   public void changerEnDehors() {
+    status = DEHORS;
     messages.add("changerEnDehors");
   }
 
+
   public void changerEnAssis() {
+    status = ASSIS;
     messages.add("changerEnAssis");
   }
 
   public void changerEnDebout() {
+    status = DEBOUT;
     messages.add("changerEnDebout");
   }
 
