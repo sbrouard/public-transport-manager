@@ -1,6 +1,6 @@
 compil_all: autobus passager simple
 
-test_all : test_passager test_simple test_autobus
+test_all : test_jauge test_position test_passager test_simple test_autobus
 
 test_passager:
 	java -ea -cp build-passagerTest:build tec.TestPassagerStandard
