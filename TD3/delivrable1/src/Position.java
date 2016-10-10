@@ -12,6 +12,10 @@ package tec;
  **/
 class Position {
 
+    private final static Position dehors = new Position();
+    private final static Position assis = new Position();
+    private final static Position debout = new Position();
+
   private final int DEHORS = 1;
   private final int ASSIS  = 2;
   private final int DEBOUT = 3;
@@ -23,7 +27,7 @@ class Position {
    * 
    */
   public Position() {
-    courant = DEHORS;
+      courant = DEHORS;
   }
 
   /**
@@ -31,9 +35,21 @@ class Position {
    * 
    * @param e valeur de l'état.
    */
-  private Position(int e) {
-    courant = e;
+  private Position Position(int e) {
+      switch(e){
+      case DEHORS :
+	  return dehors;
+      case ASSIS :
+	  return assis;
+      case DEBOUT :
+	  return debout;
+      }
+      return dehors;
   }
+	  
+	  
+	  
+
 
   /**
    * La position est-elle dehors ?
@@ -41,7 +57,7 @@ class Position {
    * @return vrai si l'état de l'instance est dehors;
    */
   public boolean estDehors() {
-    return courant != ASSIS && courant != DEBOUT;
+    return this != assis && this != debout;
   }
 
   /**
@@ -50,7 +66,7 @@ class Position {
    * @return vrai si l'état de l'instance est assis;
    */
   public boolean estAssis() {
-    return courant == ASSIS;
+    return this == assis;
   }
 
   /**
@@ -59,7 +75,7 @@ class Position {
    * @return vrai si l'état de l'instance est debout;
    */
   public boolean estDebout() {
-    return courant == DEBOUT;
+    return this == debout;
   }
 
   /**
@@ -68,7 +84,7 @@ class Position {
    * @return vrai la position est assis ou debout.
    */
   public boolean estInterieur() {
-    return courant != DEHORS;
+      return this != dehors;
   }
 
 
@@ -78,7 +94,7 @@ class Position {
    * @return instance dans l'état assis.
    */
   public Position assis() {
-    return new Position(ASSIS); 
+    return assis; 
   }
 
   /**
@@ -87,7 +103,7 @@ class Position {
    * @return instance dans l'état debout.
    */
   public Position debout() {
-    return new Position(DEBOUT);
+    return debout;
   }
 
   /**
@@ -96,7 +112,7 @@ class Position {
    * @return instance dans l'état dehors.
    */
   public Position dehors() {
-    return new Position(DEHORS);
+    return dehors;
   }
 
   /**
