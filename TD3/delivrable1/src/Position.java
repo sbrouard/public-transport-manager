@@ -127,17 +127,13 @@ class Position {
     @Override
   public String toString() {
 	String nom = null;
-	switch(this) {
-	case dehors :
+	if (this == dehors)
 	    nom = "endehors";
-	    break;
-	case assis :
+	else if (this == assis)
 	    nom = "assis";
-	    break;
-	case debout :
+	else if (this == debout)
 	    nom = "debout";
-	    break;
-	}
 	return "<" + nom + ">";
     }
 }
+
