@@ -1,4 +1,4 @@
-compil_all: autobus passager simple
+compil_all: autobus passager simple jauge position
 
 test_all : test_jauge test_position test_passager test_simple test_autobus
 

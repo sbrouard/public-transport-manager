@@ -5,8 +5,11 @@ Chaque test peut être compilé indépendamment, la liste des commandes est la s
 - make position pour compiler TestPosition
 - make simple pour compiler le test d'intégration Simple
 
-Une commande permet de compiler autobus, simple et passagerstandard :
+Une commande permet de tout compiler :
 - make compil_all
+
+Pour tout effacer :
+- make clear
 
 ************************************************************
 ************************************************************
