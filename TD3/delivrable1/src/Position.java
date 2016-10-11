@@ -84,7 +84,7 @@ class Position {
    * @return vrai la position est assis ou debout.
    */
     public boolean estInterieur() {
-	return this != dehors;
+	return ((this == debout) || (this == assis));
     }
     
     
