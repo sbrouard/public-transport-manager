@@ -1,8 +1,8 @@
 package tec;
 
-class TestJauge {
+public class TestJauge {
 
-	static void testDansIntervalle()
+	public static void testDansIntervalle()
 	{
 		Jauge j = new Jauge(67899, 100);
 		assert j.estVert() : "error";
@@ -10,7 +10,7 @@ class TestJauge {
 
 	}
 
-	static void test2()
+	public static void test2()
 	{
 		Jauge j = new Jauge(1,0);
 		j.incrementer();

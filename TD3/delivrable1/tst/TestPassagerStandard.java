@@ -1,6 +1,6 @@
 package tec;
 
-class TestPassagerStandard {
+public class TestPassagerStandard {
 
   public static void main (String[] args) {
     boolean estMisAssertion = false;
@@ -34,7 +34,7 @@ class TestPassagerStandard {
   /* Etat apres instanciation
    * Un seul cas 
    */
-  void testInstanciation() {
+  public void testInstanciation() {
     PassagerStandard p = new PassagerStandard("xxx", 3);
 
     assert false == p.estAssis();
@@ -46,7 +46,7 @@ class TestPassagerStandard {
    * 
    * Changer Debout puis Dehors puis assis. 
    */
-  void testGestionEtat() {
+  public void testGestionEtat() {
     PassagerStandard p = new PassagerStandard("yyy", 3);
 
     p.changerEnDebout();
@@ -71,7 +71,7 @@ class TestPassagerStandard {
    *  - pas de place assise
    *  - aucune place. 
    */
-  void testInteractionMontee() {
+  public void testInteractionMontee() {
     PassagerStandard p = new PassagerStandard("yyy", 5);
     
     Autobus faux = new Autobus(Autobus.VIDE);
@@ -95,7 +95,7 @@ class TestPassagerStandard {
    *  - numero d'arret < a la destination
    *  - numero d'arret >= a la destination 
    */
-  void testInteractionArret() {
+  public void testInteractionArret() {
     PassagerStandard p = new PassagerStandard("yyy", 5);
     
     Autobus faux = new Autobus(Autobus.VIDE);
