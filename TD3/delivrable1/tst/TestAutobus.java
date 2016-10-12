@@ -1,6 +1,6 @@
 package tec;
 
-class TestAutobus {
+public class TestAutobus {
 
   public static void main (String[] args) {
     boolean estMisAssertion = false;
@@ -51,7 +51,7 @@ class TestAutobus {
    *   - uniquement des places assises.
    *   - uniquement des places debout.
    */
-  void testInstanciation() {
+  public void testInstanciation() {
     //*********** Assis ****************************
     Autobus assis = new Autobus(66, 0);
 
@@ -71,7 +71,7 @@ class TestAutobus {
    * Remplir toutes les places assises d'un autobus.
    * Remplir toutes les places debout d'un autobus.
    */
-  void testGestionDemander() {
+  public void testGestionDemander() {
     PassagerStandard[] faux = {new PassagerStandard(),
 			       new PassagerStandard(),
 			       new PassagerStandard(),
@@ -111,7 +111,7 @@ class TestAutobus {
    * Remplir toutes les places assises et toutes les places debout.
    * Faire sortir un assis et un debout.
    */
-  void testGestionSortie() {
+  public void testGestionSortie() {
     PassagerStandard[] faux = {new PassagerStandard(),
 			       new PassagerStandard(),
 			       new PassagerStandard(),
@@ -150,7 +150,7 @@ class TestAutobus {
    * Changer un assis en debout
    * et un debout en assis.
    */
-  void testGestionChanger() {
+  public void testGestionChanger() {
     PassagerStandard[] faux = {new PassagerStandard(),
 			       new PassagerStandard(),
 			       new PassagerStandard(),
@@ -190,7 +190,7 @@ class TestAutobus {
    *
    * Remplir un autobus debout puis assis.
    */
-  void testInteractionDemander() {
+  public void testInteractionDemander() {
     PassagerStandard[] faux = {new PassagerStandard(),
 			       new PassagerStandard(),
 			       new PassagerStandard(),
@@ -228,7 +228,7 @@ class TestAutobus {
    * 
    * Changer un debout en assis puis d'assis à debout.
    */
-  void testInteractionChanger() {
+  public void testInteractionChanger() {
     PassagerStandard faux = new PassagerStandard();
 
     Autobus bus = new Autobus(1, 1);
@@ -250,7 +250,7 @@ class TestAutobus {
    * demander des places assises et debout.
    * et faire sortir un assis et un debout.
    */
-  void testInteractionSortie() {
+  public void testInteractionSortie() {
     PassagerStandard[] faux = {new PassagerStandard(),
 			       new PassagerStandard(),
 			       new PassagerStandard(),
@@ -304,7 +304,7 @@ class TestAutobus {
    * Ajouter quelques passager assise et debout.
    * Faire sortie des passagers assis et debout.
    */
-  void testArretSuivant() {
+  public void testArretSuivant() {
     PassagerStandard[] faux = {new PassagerStandard(),
 			       new PassagerStandard(),
 			       new PassagerStandard(),

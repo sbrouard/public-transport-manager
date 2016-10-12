@@ -1,6 +1,6 @@
 package tec;
 
-class TestPosition {
+public class TestPosition {
     
     public void testExterieur(){
 	Position pos = new Position();
