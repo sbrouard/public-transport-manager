@@ -72,16 +72,16 @@ public class TestAutobus {
    * Remplir toutes les places debout d'un autobus.
    */
   public void testGestionDemander() {
-    PassagerStandard[] faux = {new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard()}; //10
+    FauxPassager[] faux = {new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager()}; //10
 
     Autobus bus = new Autobus(5, 3);
 
@@ -112,27 +112,27 @@ public class TestAutobus {
    * Faire sortir un assis et un debout.
    */
   public void testGestionSortie() {
-    PassagerStandard[] faux = {new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard()}; // 9
+    FauxPassager[] faux = {new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager()}; // 9
 
     Autobus bus = new Autobus(3, 4);
 
     //*************** Remplir **********************
     for (int i = 1; i < 4; i++) { //3
       bus.monteeDemanderAssis(faux[i]);
-      faux[i].status = PassagerStandard.ASSIS;
+      faux[i].status = FauxPassager.ASSIS;
     }
 
     for (int i = 4; i <= 7; i++) { //4
       bus.monteeDemanderDebout(faux[i]);
-      faux[i].status = PassagerStandard.DEBOUT;
+      faux[i].status = FauxPassager.DEBOUT;
     }
 
     //***************** Sortir *************************
@@ -151,27 +151,27 @@ public class TestAutobus {
    * et un debout en assis.
    */
   public void testGestionChanger() {
-    PassagerStandard[] faux = {new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard()}; // 9
+    FauxPassager[] faux = {new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager()}; // 9
 
     Autobus bus = new Autobus(3, 5);
 
     //*************** Remplir **********************
     for (int i = 1; i < 4; i++) { //3
       bus.monteeDemanderAssis(faux[i]);
-      faux[i].status = PassagerStandard.ASSIS;
+      faux[i].status = FauxPassager.ASSIS;
     }
 
     for (int i = 4; i <= 7; i++) { //4
       bus.monteeDemanderDebout(faux[i]);
-      faux[i].status = PassagerStandard.DEBOUT;
+      faux[i].status = FauxPassager.DEBOUT;
     }
 
     //************** Changer *************************
@@ -191,16 +191,16 @@ public class TestAutobus {
    * Remplir un autobus debout puis assis.
    */
   public void testInteractionDemander() {
-    PassagerStandard[] faux = {new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard()}; //10
+    FauxPassager[] faux = {new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager()}; //10
 
     Autobus bus = new Autobus(3, 5);
 
@@ -229,12 +229,12 @@ public class TestAutobus {
    * Changer un debout en assis puis d'assis à debout.
    */
   public void testInteractionChanger() {
-    PassagerStandard faux = new PassagerStandard();
+    FauxPassager faux = new FauxPassager();
 
     Autobus bus = new Autobus(1, 1);
 
     bus.monteeDemanderDebout(faux);
-    faux.status = PassagerStandard.DEBOUT;
+    faux.status = FauxPassager.DEBOUT;
 
     bus.arretDemanderAssis(faux);
     assert 2 == faux.messages.size() : "erreur nombre d'appels";
@@ -251,39 +251,39 @@ public class TestAutobus {
    * et faire sortir un assis et un debout.
    */
   public void testInteractionSortie() {
-    PassagerStandard[] faux = {new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard()}; // 9
+    FauxPassager[] faux = {new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager()}; // 9
 
     Autobus bus = new Autobus(10, 20);
 
     //*************** Ajouter **********************
     bus.monteeDemanderAssis(faux[1]);
-    faux[1].status = PassagerStandard.ASSIS;
+    faux[1].status = FauxPassager.ASSIS;
 
     bus.monteeDemanderDebout(faux[2]);
-    faux[2].status = PassagerStandard.DEBOUT;
+    faux[2].status = FauxPassager.DEBOUT;
 
     bus.monteeDemanderDebout(faux[3]);
-    faux[3].status = PassagerStandard.DEBOUT;
+    faux[3].status = FauxPassager.DEBOUT;
 
     bus.monteeDemanderAssis(faux[4]);
-    faux[4].status = PassagerStandard.ASSIS;
+    faux[4].status = FauxPassager.ASSIS;
 
     bus.monteeDemanderDebout(faux[5]);
-    faux[5].status = PassagerStandard.DEBOUT;
+    faux[5].status = FauxPassager.DEBOUT;
 
     bus.monteeDemanderAssis(faux[6]);
-    faux[6].status = PassagerStandard.ASSIS;
+    faux[6].status = FauxPassager.ASSIS;
 
     bus.monteeDemanderAssis(faux[7]);
-    faux[7].status = PassagerStandard.ASSIS;
+    faux[7].status = FauxPassager.ASSIS;
 
     //***************** Sortir *************************
     bus.arretDemanderSortie(faux[6]);
@@ -305,27 +305,27 @@ public class TestAutobus {
    * Faire sortie des passagers assis et debout.
    */
   public void testArretSuivant() {
-    PassagerStandard[] faux = {new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard(),
-			       new PassagerStandard()}; // 9
+    FauxPassager[] faux = {new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager(),
+			       new FauxPassager()}; // 9
 
     Autobus bus = new Autobus(99, 66);
 
     //********* Ajout des passagers **********
     for (int i = 1; i < 5; i++) {
       bus.monteeDemanderAssis(faux[i]);
-      faux[i].status = PassagerStandard.ASSIS;
+      faux[i].status = FauxPassager.ASSIS;
     }
 
     for (int i = 5; i < 9; i++) {
       bus.monteeDemanderDebout(faux[i]);
-      faux[i].status = PassagerStandard.DEBOUT;
+      faux[i].status = FauxPassager.DEBOUT;
     }
 
     /*******************************************/
@@ -344,7 +344,7 @@ public class TestAutobus {
     bus.arretDemanderSortie(faux[8]);
 
     bus.monteeDemanderDebout(faux[0]);
-    faux[0].status = PassagerStandard.DEBOUT;
+    faux[0].status = FauxPassager.DEBOUT;
 
     bus.allerArretSuivant();
 

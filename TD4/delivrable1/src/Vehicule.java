@@ -6,10 +6,10 @@ public interface Vehicule {
 
   void allerArretSuivant();
 
-  void monteedemanderAssis(Passager p);
-  void monteedemanderDebout(Passager p);
+  void monteeDemanderAssis(Passager p);
+  void monteeDemanderDebout(Passager p);
 
-  public void arretdemanderDebout(Passager p);
-  public void arretdemanderAssis(Passager p);
-  public void arretdemanderSortie(Passager p);
+  public void arretDemanderDebout(Passager p);
+  public void arretDemanderAssis(Passager p);
+  public void arretDemanderSortie(Passager p);
 }

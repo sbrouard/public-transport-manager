@@ -13,7 +13,7 @@ package tec;
  * Il enregistre l'appel aux méthodes qui
  * doivent modifier son etat.
  */
-class Autobus {
+class FauxVehicule implements Vehicule{
   static final byte VIDE   = 0;
   static final byte DEBOUT = 1;
   static final byte ASSIS  = 2;
@@ -30,15 +30,15 @@ class Autobus {
   public :**/
 
   final Messages messages = new Messages();
-  Autobus() {
+  FauxVehicule() {
     status = VIDE;
   }
 
-  Autobus(byte init) {
+  FauxVehicule(byte init) {
     status = init;
   }
 
-  Autobus(int assis, int debout)
+  FauxVehicule(int assis, int debout)
   {
     
   }
@@ -53,24 +53,24 @@ class Autobus {
       || status == VIDE;
   }
 
-  // Enregistrements des appels effectues par PassagerStandard.
-  public void monteeDemanderAssis(PassagerStandard p) {
+  // Enregistrements des appels effectues par Passager.
+  public void monteeDemanderAssis(Passager p) {
     messages.add("monteeDemanderAssis");
   }
 
-  public void monteeDemanderDebout(PassagerStandard p) {
+  public void monteeDemanderDebout(Passager p) {
     messages.add("monteeDemanderDebout");
   }
 
-  public void arretDemanderDebout(PassagerStandard p) {
+  public void arretDemanderDebout(Passager p) {
     messages.add("arretDemanderDebout");
   }
   
-  public void arretDemanderAssis(PassagerStandard p) {
+  public void arretDemanderAssis(Passager p) {
     messages.add("arretDemanderAssis");
   }
 
-  public void arretDemanderSortie(PassagerStandard p) {
+  public void arretDemanderSortie(Passager p) {
     messages.add("arretDemanderSortie");    
   }
 
