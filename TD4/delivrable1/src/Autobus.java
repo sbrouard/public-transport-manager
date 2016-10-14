@@ -1,6 +1,6 @@
 package tec;
 
-public class Autobus implements Vehicule extends Passager{
+public class Autobus implements Vehicule{
   private int numero_arret;
   private Passager[] passagers;
   private Jauge my_debout;
@@ -15,7 +15,7 @@ public class Autobus implements Vehicule extends Passager{
   {
 	  nb_debout = debout;
 	  nb_assis = assis;
-	  passagers = new PassagerStandard[nb_debout+nb_assis];
+	  passagers = new Passager[nb_debout+nb_assis];
 	  numero_arret = 0;
 
 	  for(int i=0;i<nb_debout+nb_assis;i++)

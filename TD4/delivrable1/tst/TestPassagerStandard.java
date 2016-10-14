@@ -74,17 +74,17 @@ public class TestPassagerStandard {
   public void testInteractionMontee() {
     PassagerStandard p = new PassagerStandard("yyy", 5);
     
-    Autobus faux = new Autobus(Autobus.VIDE);
+    FauxVehicule faux = new FauxVehicule(FauxVehicule.VIDE);
     p.monterDans(faux);
     
     assert "monteeDemanderAssis" == faux.messages.getLast() : "assis";    
     
-    faux = new Autobus(Autobus.DEBOUT);
+    faux = new FauxVehicule(FauxVehicule.DEBOUT);
     p.monterDans(faux);
     
     assert "monteeDemanderDebout" == faux.messages.getLast() : "debout";    
 
-    faux = new Autobus(Autobus.PLEIN);
+    faux = new FauxVehicule(FauxVehicule.PLEIN);
     p.monterDans(faux);
     
     assert 0 == faux.messages.size() : "pas de place";        
@@ -98,7 +98,7 @@ public class TestPassagerStandard {
   public void testInteractionArret() {
     PassagerStandard p = new PassagerStandard("yyy", 5);
     
-    Autobus faux = new Autobus(Autobus.VIDE);
+    FauxVehicule faux = new FauxVehicule(FauxVehicule.VIDE);
 
     p.nouvelArret(faux, 1);
     assert 0 == faux.messages.size() : "pas a destination";

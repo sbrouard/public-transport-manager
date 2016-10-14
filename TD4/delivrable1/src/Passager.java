@@ -13,5 +13,5 @@ public interface Passager {
 
   public void changerEnDehors();
   public void changerEnAssis();
-  public void changererEnDebout();
+  public void changerEnDebout();
 }

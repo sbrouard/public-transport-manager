@@ -12,7 +12,7 @@ package tec;
  *
  * Il enregistre l'appel aux méthodes qui doivent modifier son etat.
  */
-class PassagerStandard {
+class FauxPassager implements Passager{
   static final byte DEHORS = 0;
   static final byte ASSIS  = 1;
   static final byte DEBOUT = 2;
@@ -20,11 +20,11 @@ class PassagerStandard {
 
   final Messages messages = new Messages();
 
-  PassagerStandard() {
+  FauxPassager() {
     status = DEHORS;
   }
 
-  PassagerStandard(byte init) {
+  FauxPassager(byte init) {
     status = init;
   }
 
@@ -61,11 +61,11 @@ class PassagerStandard {
     messages.add("changerEnDebout");
   }
 
-  public void nouvelArret(Autobus bus, int numeroArret) {
+  public void nouvelArret(Vehicule bus, int numeroArret) {
     messages.add("nouvelArret");
   }
 
   // Autobus n'utilise pas cette méthode.
-  public void monterDans(Autobus t) { 
+  public void monterDans(Vehicule t) { 
   }
 }
