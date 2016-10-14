@@ -1,11 +1,6 @@
 package tec;
 
-public interface Vehicule {
-  public boolean aPlaceAssise();
-  public boolean aPlaceDebout();
-
-  void allerArretSuivant();
-
+abstract class Vehicule {
   void monteeDemanderAssis(Passager p);
   void monteeDemanderDebout(Passager p);
 

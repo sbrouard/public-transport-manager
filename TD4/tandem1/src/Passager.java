@@ -1,10 +1,7 @@
 package tec;
 
-public interface Passager {
-  public String nom();
+abstract class Passager {
   public boolean estDehors();
-  
-  void monterDans(Vehicule b);
 
   void nouvelArret(Vehicule b, int numeroArret);
 
