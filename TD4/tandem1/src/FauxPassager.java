@@ -12,7 +12,7 @@ package tec;
  *
  * Il enregistre l'appel aux méthodes qui doivent modifier son etat.
  */
-class FauxPassager implements Passager{
+class FauxPassager extends Passager implements Usager {
   static final byte DEHORS = 0;
   static final byte ASSIS  = 1;
   static final byte DEBOUT = 2;
@@ -32,40 +32,40 @@ class FauxPassager implements Passager{
     return null;
   }
 
-  public boolean estDehors() {
+  boolean estDehors() {
     return status == DEHORS;
   }
   
-  public boolean estAssis() {
+  boolean estAssis() {
     return status == ASSIS;
   }
   
-  public boolean estDebout() {
+  boolean estDebout() {
     return status == DEBOUT;
   }
 
   // Enregistrements des appels effectues par Autobus.
-  public void changerEnDehors() {
+  void changerEnDehors() {
     status = DEHORS;
     messages.add("changerEnDehors");
   }
 
 
-  public void changerEnAssis() {
+  void changerEnAssis() {
     status = ASSIS;
     messages.add("changerEnAssis");
   }
 
-  public void changerEnDebout() {
+  void changerEnDebout() {
     status = DEBOUT;
     messages.add("changerEnDebout");
   }
 
-  public void nouvelArret(Vehicule bus, int numeroArret) {
+  void nouvelArret(Vehicule bus, int numeroArret) {
     messages.add("nouvelArret");
   }
 
   // Autobus n'utilise pas cette méthode.
-  public void monterDans(Vehicule t) { 
+    public void monterDans(Transport t) { 
   }
 }

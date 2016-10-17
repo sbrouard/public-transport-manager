@@ -13,7 +13,7 @@ package tec;
  * Il enregistre l'appel aux méthodes qui
  * doivent modifier son etat.
  */
-class FauxVehicule implements Vehicule{
+class FauxVehicule extends Vehicule implements Transport{
   static final byte VIDE   = 0;
   static final byte DEBOUT = 1;
   static final byte ASSIS  = 2;
@@ -54,27 +54,27 @@ class FauxVehicule implements Vehicule{
   }
 
   // Enregistrements des appels effectues par Passager.
-  public void monteeDemanderAssis(Passager p) {
-    messages.add("monteeDemanderAssis");
+    void monteeDemanderAssis(Passager p) {
+	messages.add("monteeDemanderAssis");
   }
 
-  public void monteeDemanderDebout(Passager p) {
-    messages.add("monteeDemanderDebout");
+    void monteeDemanderDebout(Passager p) {
+	messages.add("monteeDemanderDebout");
   }
 
-  public void arretDemanderDebout(Passager p) {
-    messages.add("arretDemanderDebout");
+    void arretDemanderDebout(Passager p) {
+	messages.add("arretDemanderDebout");
   }
   
-  public void arretDemanderAssis(Passager p) {
-    messages.add("arretDemanderAssis");
-  }
+    void arretDemanderAssis(Passager p) {
+	messages.add("arretDemanderAssis");
+    }
 
-  public void arretDemanderSortie(Passager p) {
-    messages.add("arretDemanderSortie");    
+    void arretDemanderSortie(Passager p) {
+	messages.add("arretDemanderSortie");    
   }
 
   // PassagerStandard n'utilise pas cette méthode.
-  public void allerArretSuivant() { 
-  }
+    public void allerArretSuivant() { 
+    }
 }

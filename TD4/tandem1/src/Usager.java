@@ -1,7 +1,7 @@
 package tec;
 
-public abstract class Usager {
+public interface Usager {
     public String nom();
     
-    public void monterDans(Vehicule b);
+    public void monterDans(Transport t);
 }

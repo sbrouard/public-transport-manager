@@ -1,6 +1,6 @@
 package tec;
 
-public class PassagerStandard implements Passager{
+public class PassagerStandard extends Passager implements Usager{
     Position pos;
     String name;
     int dst;
@@ -13,37 +13,38 @@ public class PassagerStandard implements Passager{
     
 
     // Change la position d'un passager en assis
-    public void changerEnAssis() {
+    void changerEnAssis() {
 	pos = pos.assis();
     }
 
     // Change la position d'un passager en debout
-    public void changerEnDebout() {
+    void changerEnDebout() {
 	pos = pos.debout();
     }
 
     // Change la position d'un passager en dehors
-    public void changerEnDehors() {
+    void changerEnDehors() {
 	pos = pos.dehors();
     }
 
     // Le passager est-il assis dans l'autobus ?
-    public boolean estAssis() {
+    boolean estAssis() {
 	return pos.estAssis();
     }
     
     // Le passager est-il debout dans l'autobus ?
-    public boolean estDebout() {
+    boolean estDebout() {
 	return pos.estDebout();
     }
 
     // Le passager est-il en dehors d'un autobus ?
-    public boolean estDehors() {
+    boolean estDehors() {
 	return pos.estDehors();
     }
 
     // Fournit a un passager l'autobus auquel il peut accéder
-    public void monterDans(Vehicule t) {
+    public void monterDans(Transport b) {
+	Vehicule t = (Vehicule) b;
 	if (t.aPlaceAssise()){
 	    t.monteeDemanderAssis(this);
 	}
@@ -58,7 +59,7 @@ public class PassagerStandard implements Passager{
     }
     
     // Indique au passager qu'il est arrivé à un nouvel arret
-    public void nouvelArret(Vehicule bus, int numeroArret) {
+    void nouvelArret(Vehicule bus, int numeroArret) {
 	if (numeroArret == dst) bus.arretDemanderSortie(this);
     }
     
