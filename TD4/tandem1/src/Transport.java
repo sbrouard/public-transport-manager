@@ -1,6 +1,6 @@
 package tec;
 
-abstract class Transport {
+public interface Transport {
     public void allerArretSuivant();
     
     public boolean aPlaceAssise();

@@ -1,6 +1,6 @@
 package tec;
 
-public class Autobus extends Vehicule, Transport{
+public class Autobus extends Vehicule implements Transport{
   private int numero_arret;
   private Passager[] passagers;
   private Jauge my_debout;
@@ -54,7 +54,7 @@ public class Autobus extends Vehicule, Transport{
   }
 
   // Enregistrements des appels effectues par Passager.
-  public void monteeDemanderAssis(Passager p)
+  void monteeDemanderAssis(Passager p)
   {
 	  if(aPlaceAssise())
 	  {
@@ -64,7 +64,7 @@ public class Autobus extends Vehicule, Transport{
 	  }
   }
 
-  public void monteeDemanderDebout(Passager p)
+  void monteeDemanderDebout(Passager p)
   {
 	  if(aPlaceDebout())
 	  {
@@ -74,7 +74,7 @@ public class Autobus extends Vehicule, Transport{
 	  }
   }
 
-  public void arretDemanderDebout(Passager p)
+  void arretDemanderDebout(Passager p)
   {
 	  if(aPlaceDebout())
 	  {
@@ -87,7 +87,7 @@ public class Autobus extends Vehicule, Transport{
 	  }
   }
   
-  public void arretDemanderAssis(Passager p)
+  void arretDemanderAssis(Passager p)
   {
 	  if(aPlaceAssise())
 	  {
@@ -100,7 +100,7 @@ public class Autobus extends Vehicule, Transport{
 	  }
   }
 
-  public void arretDemanderSortie(Passager p)
+  void arretDemanderSortie(Passager p)
   {
 	if(p.estAssis())
 		my_assis.decrementer();

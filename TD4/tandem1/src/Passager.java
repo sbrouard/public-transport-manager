@@ -1,14 +1,16 @@
 package tec;
 
 abstract class Passager {
-  public boolean estDehors();
+    abstract boolean estDehors();
+    
+    abstract void nouvelArret(Vehicule b, int numeroArret);
+    
+    abstract boolean estAssis();
+    abstract boolean estDebout();
+    
+    abstract void changerEnDehors();
+    abstract void changerEnAssis();
+    abstract void changerEnDebout();
 
-  void nouvelArret(Vehicule b, int numeroArret);
-
-  public boolean estAssis();
-  public boolean estDebout();
-
-  public void changerEnDehors();
-  public void changerEnAssis();
-  public void changerEnDebout();
+    abstract String nom();
 }
