@@ -1,4 +1,6 @@
-package tec;
+import tec.Vehicule;
+import tec.Passager;
+import tec.FabriqueTec;
 
 class Simple {
     
