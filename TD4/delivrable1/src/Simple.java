@@ -1,14 +1,17 @@
 import tec.PassagerStandard;
 import tec.Autobus;
+import tec.Passager;
+import tec.Vehicule;
+
 
 class Simple {
     
     public void testIntegration() {
-	Autobus serenity = new Autobus(1, 2);
+	Vehicule serenity = new Autobus(1, 2);
 	
-	PassagerStandard kaylee = new PassagerStandard("Kaylee", 4);
-	PassagerStandard jayne = new PassagerStandard("Jayne", 4);
-	PassagerStandard inara = new PassagerStandard("Inara", 5);
+	Passager kaylee = new PassagerStandard("Kaylee", 4);
+	Passager jayne = new PassagerStandard("Jayne", 4);
+	Passager inara = new PassagerStandard("Inara", 5);
     
 	//0
 	System.out.println(serenity.toString());
