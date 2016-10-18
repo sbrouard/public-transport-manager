@@ -13,4 +13,4 @@ build/%.class: tst/%.java
 	javac -d build -cp build tst/$*.java
 
 clear:
-	rm -rf build/* build-autobusTest/* build-passagerTest/*
+	rm -rf build/*
