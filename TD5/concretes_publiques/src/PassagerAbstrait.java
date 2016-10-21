@@ -45,12 +45,13 @@ abstract public class PassagerAbstrait extends Passager implements Usager{
     // Fournit a un passager l'autobus auquel il peut accéder
     public void monterDans(Transport b) {
 	Vehicule t = (Vehicule) b;
-	if (t.aPlaceAssise()){
+	choixPlaceMontee(t);
+	/*if (t.aPlaceAssise()){
 	    t.monteeDemanderAssis(this);
 	}
 	else if (t.aPlaceDebout()){
 	    t.monteeDemanderDebout(this);
-	}
+	    }*/
     }
 
     // Fournit le nom d'un passager
@@ -60,8 +61,13 @@ abstract public class PassagerAbstrait extends Passager implements Usager{
     
     // Indique au passager qu'il est arrivé à un nouvel arret
     void nouvelArret(Vehicule bus, int numeroArret) {
+	choixChangerPlace(bus,numeroArret);
 	if (numeroArret == dst) bus.arretDemanderSortie(this);
     }
+
+    abstract void choixPlaceMontee(Vehicule v);
+    abstract void choixChangerPlace(Vehicule v, int arret);
+    
     
     public String toString() {
 	return name + pos.toString();
