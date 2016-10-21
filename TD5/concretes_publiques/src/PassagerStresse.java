@@ -1,6 +1,6 @@
 package tec;
 
-class PassagerStresse implements Usager extends PassagerAbstrait{
+class PassagerStresse extends PassagerAbstrait implements Usager{
 
 	void PassagerStresse(String nom, int numArret)
 	{

@@ -1,6 +1,6 @@
-package tec
+package tec;
 
-class PassagerIndecis implements Usager extends PassagerAbstrait{
+class PassagerIndecis extends PassagerAbstrait implements Usager{ 
 
 	void PassagerIndecis(String nom, int numArret)
 	{
