@@ -1,4 +1,4 @@
-package tec
+package tec;
 
 class PassagerStresse implements Usager extends PassagerAbstrait{
 
