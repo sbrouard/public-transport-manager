@@ -1,11 +1,11 @@
 package tec;
 
-public class PassagerStandard extends Passager implements Usager{
+abstract public class PassagerAbstrait extends Passager implements Usager{
     Position pos;
     String name;
     int dst;
 
-    public PassagerStandard(String nom, int destination) {
+    public PassagerAbstrait(String nom, int destination) {
 	name = nom;
 	dst = destination;
 	pos = new Position();
