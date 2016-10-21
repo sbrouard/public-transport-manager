@@ -15,8 +15,8 @@ class PassagerIndecis extends PassagerAbstrait implements Usager{
 	void choixChangerPlace(Vehicule v, int arret)
 	{
 		if(estAssis())
-			v.arretDemanderDebout();
+			v.arretDemanderDebout(this);
 		else if(estDebout())
-			v.arretDemanderAssis();
+			v.arretDemanderAssis(this);
 	}
 }
