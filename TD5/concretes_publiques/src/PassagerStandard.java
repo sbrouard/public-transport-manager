@@ -11,11 +11,11 @@ public class PassagerStandard extends PassagerAbstrait implements Usager{
    
     
     void choixPlaceMontee(Vehicule v){
-	if (t.aPlaceAssise()){
-	    t.monteeDemanderAssis(this);
+	if (v.aPlaceAssise()){
+	    v.monteeDemanderAssis(this);
 	}
-	else if (t.aPlaceDebout()){
-	    t.monteeDemanderDebout(this);
+	else if (v.aPlaceDebout()){
+	    v.monteeDemanderDebout(this);
 	    }
     }
 
