@@ -1,9 +1,9 @@
 package tec;
 
 abstract public class PassagerAbstrait extends Passager implements Usager{
-    Position pos;
-    String name;
-    int dst;
+    private Position pos;
+    private String name;
+    private int dst;
 
     public PassagerAbstrait(String nom, int destination) {
 	name = nom;
@@ -11,6 +11,9 @@ abstract public class PassagerAbstrait extends Passager implements Usager{
 	pos = new Position();
     }
     
+    public int getDestination(){
+	return dst;
+    }
 
     // Change la position d'un passager en assis
     void changerEnAssis() {
@@ -46,12 +49,6 @@ abstract public class PassagerAbstrait extends Passager implements Usager{
     public void monterDans(Transport b) {
 	Vehicule t = (Vehicule) b;
 	choixPlaceMontee(t);
-	/*if (t.aPlaceAssise()){
-	    t.monteeDemanderAssis(this);
-	}
-	else if (t.aPlaceDebout()){
-	    t.monteeDemanderDebout(this);
-	    }*/
     }
 
     // Fournit le nom d'un passager
