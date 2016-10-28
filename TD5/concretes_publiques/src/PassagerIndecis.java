@@ -9,6 +9,7 @@ class PassagerIndecis extends PassagerAbstrait implements Usager{
 
 	void choixPlaceMontee(Vehicule v)
 	{
+	    if (v.aPlaceDebout())
 		v.monteeDemanderDebout(this);	
 	}
 
