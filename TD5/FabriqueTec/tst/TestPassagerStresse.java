@@ -2,35 +2,6 @@ package tec;
 
 public class TestPassagerStresse extends TestPassagerAbstrait {
 
-    public static void main (String[] args) {
-	boolean estMisAssertion = false;
-	assert estMisAssertion = true;
-	
-	if (!estMisAssertion) {
-	    System.out.println("Execution impossible sans l'option -ea");
-	    return;
-	}
-
-	int nbTest = 0;
-	
-	//************ Verifier l'instanciation *************
-	System.out.print('.'); nbTest++;
-	new TestPassagerStresse().testInstanciation();
-	
-	//********* Verifier changement d'etat **************
-	System.out.print('.'); nbTest++;
-	new TestPassagerStresse().testGestionEtat();
-	
-	//********* Verifier les interactions  *************
-	System.out.print('.'); nbTest++;
-	new TestPassagerStresse().testInteractionMontee();
-	
-	System.out.print('.'); nbTest++;
-	new TestPassagerStresse().testInteractionArret();
-	
-	System.out.println("(" + nbTest + "):OK: " + "tec.PassagerStandard"); 
-    }
-
     protected PassagerAbstrait creerPassager(String nom, int destination) {
 	return new PassagerStresse(nom, destination);
     }
@@ -77,4 +48,34 @@ public class TestPassagerStresse extends TestPassagerAbstrait {
 	
 	assert 0 == faux.messages.size() : "pas de place";        
     }
+
+    public static void main (String[] args) {
+	boolean estMisAssertion = false;
+	assert estMisAssertion = true;
+	
+	if (!estMisAssertion) {
+	    System.out.println("Execution impossible sans l'option -ea");
+	    return;
+	}
+
+	int nbTest = 0;
+	
+	//************ Verifier l'instanciation *************
+	System.out.print('.'); nbTest++;
+	new TestPassagerStresse().testInstanciation();
+	
+	//********* Verifier changement d'etat **************
+	System.out.print('.'); nbTest++;
+	new TestPassagerStresse().testGestionEtat();
+	
+	//********* Verifier les interactions  *************
+	System.out.print('.'); nbTest++;
+	new TestPassagerStresse().testInteractionMontee();
+	
+	System.out.print('.'); nbTest++;
+	new TestPassagerStresse().testInteractionArret();
+	
+	System.out.println("(" + nbTest + "):OK: " + "tec.PassagerStandard"); 
+    }
+
 }
