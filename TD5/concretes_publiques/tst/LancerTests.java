@@ -5,14 +5,18 @@ import java.lang.reflect.Method;
 class LancerTests {
     static private void lancer(Class c) throws Exception {
 	Method m[] = c.getMethods();
-	for(int i = 0+1; i < m.length-9; i++){
+	String t;
+	/*for(int i = 0+1; i < m.length-9; i++){
 	    System.out.println(m[i]);
-	}
+	}*/
 
 	Object a = c.newInstance();
-	for(int i = 0+1; i < m.length-9; i++){
-	    m[i].invoke(a);
-	    System.out.println(".");
+	for(int i = 0; i < m.length; i++){
+	    t = "" + m[i];
+	    if(t.indexOf("test") >= 0){
+		m[i].invoke(a);
+		System.out.println(".");
+	    }
 	}
 	System.out.println("OK");
     }
