@@ -21,8 +21,4 @@ public class PassagerStandard extends PassagerAbstrait implements Usager{
 
     protected void choixChangerPlace(Vehicule v, int arret){}
     
-    
-    public String toString() {
-	return name + pos.toString();
-    }
 }
