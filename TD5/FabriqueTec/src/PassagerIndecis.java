@@ -2,7 +2,7 @@ package tec;
 
 class PassagerIndecis extends PassagerAbstrait implements Passager, Usager{ 
 
-	public PassagerIndecis(String nom, int numArret)
+	PassagerIndecis(String nom, int numArret)
 	{
 		super(nom,numArret);
 	}
