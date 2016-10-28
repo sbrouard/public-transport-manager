@@ -8,7 +8,6 @@ public class PassagerStandard extends PassagerAbstrait implements Usager{
     public PassagerStandard(String nom, int destination) {
 	super(nom,destination);
     }
-   
     
     void choixPlaceMontee(Vehicule v){
 	if (v.aPlaceAssise()){
