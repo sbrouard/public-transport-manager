@@ -2,12 +2,12 @@ package tec;
 
 public class FabriqueTec{
 	
-	public static Passager fairePassagerStd(String nom, int destination)
+	public static Usager fairePassagerStd(String nom, int destination)
 	{
 		return new PassagerStandard(nom,destination);
 	}
 
-	public static Vehicule faireBus(int assis, int debout)
+	public static Transport faireBus(int assis, int debout)
 	{
 		return new Autobus(assis,debout);
 	}

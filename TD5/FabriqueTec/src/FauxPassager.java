@@ -12,7 +12,7 @@ package tec;
  *
  * Il enregistre l'appel aux méthodes qui doivent modifier son etat.
  */
-class FauxPassager implements Passager{
+class FauxPassager implements Passager, Usager{
   static final byte DEHORS = 0;
   static final byte ASSIS  = 1;
   static final byte DEBOUT = 2;
@@ -66,6 +66,6 @@ class FauxPassager implements Passager{
   }
 
   // Autobus n'utilise pas cette méthode.
-  public void monterDans(Vehicule t) { 
+    public void monterDans(Transport t) { 
   }
 }
