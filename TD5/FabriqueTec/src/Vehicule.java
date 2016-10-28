@@ -1,6 +1,6 @@
 package tec;
 
-public interface Vehicule {
+interface Vehicule {
   public boolean aPlaceAssise();
   public boolean aPlaceDebout();
 

@@ -1,6 +1,6 @@
 package tec;
 
-public class Autobus implements Vehicule{
+public class Autobus implements Vehicule, Transport{
   private int numero_arret;
   private Passager[] passagers;
   private Jauge my_debout;

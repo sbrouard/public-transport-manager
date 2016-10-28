@@ -1,16 +1,15 @@
+TST=TestJauge\
+	TestPosition\
+	TestAutobus\
+	TestPassagerStandard
 
-main:  build/Messages.class build/Passager.class  build/Vehicule.class build/FauxPassager.class build/FauxVehicule.class  build/Jauge.class   build/Position.class build/PassagerStandard.class build/Autobus.class  build/FabriqueTec.class   build/Simple.class  	
-	java -cp build -ea Simple
+all: clean
+	javac -d build src/*.java tst/*.java
+	java -ea -cp build tec.LancerTests $(TST)
+	java -ea -cp build Simple
 
-build/Vegicule.class:
-build/Passager.class:
-	javac -d build -cp build src/Vehicule.java src/Passager.java
+clean:
+	rm -rf build*/*
+	rm -rf src/#* src/*~
+	rm -rf tst/#* tst/*~
 
-build/%.class: src/%.java
-	javac -d build -cp build src/$*.java
-
-build/%.class: tst/%.java
-	javac -d build -cp build tst/$*.java
-
-clear:
-	rm -rf build/*

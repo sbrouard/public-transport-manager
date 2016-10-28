@@ -1,15 +1,15 @@
-import tec.Vehicule;
-import tec.Passager;
+import tec.Usager;
+import tec.Transport;
 import tec.FabriqueTec;
 
 class Simple {
     
     public void testIntegration() {
-	Vehicule serenity = FabriqueTec.faireBus(1, 2);
+	Transport serenity = FabriqueTec.faireBus(1, 2);
 	
-	Passager kaylee = FabriqueTec.fairePassagerStd("Kaylee", 4);
-	Passager jayne = FabriqueTec.fairePassagerStd("Jayne", 4);
-	Passager inara = FabriqueTec.fairePassagerStd("Inara", 5);
+	Usager kaylee = FabriqueTec.fairePassagerStd("Kaylee", 4);
+	Usager jayne = FabriqueTec.fairePassagerStd("Jayne", 4);
+	Usager inara = FabriqueTec.fairePassagerStd("Inara", 5);
     
 	//0
 	System.out.println(serenity.toString());
