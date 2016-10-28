@@ -9,7 +9,7 @@ public class PassagerStandard extends PassagerAbstrait implements Usager{
 	super(nom,destination);
     }
     
-    void choixPlaceMontee(Vehicule v){
+    protected void choixPlaceMontee(Vehicule v){
 	if (v.aPlaceAssise()){
 	    v.monteeDemanderAssis(this);
 	}
@@ -19,7 +19,7 @@ public class PassagerStandard extends PassagerAbstrait implements Usager{
     }
 
 
-    void choixChangerPlace(Vehicule v, int arret){}
+    protected void choixChangerPlace(Vehicule v, int arret){}
     
     
     public String toString() {
