@@ -62,8 +62,8 @@ abstract public class PassagerAbstrait extends Passager implements Usager{
 	if (numeroArret == dst) bus.arretDemanderSortie(this);
     }
 
-    abstract void choixPlaceMontee(Vehicule v);
-    abstract void choixChangerPlace(Vehicule v, int arret);
+    abstract protected void choixPlaceMontee(Vehicule v);
+    abstract protected void choixChangerPlace(Vehicule v, int arret);
     
     
     public String toString() {

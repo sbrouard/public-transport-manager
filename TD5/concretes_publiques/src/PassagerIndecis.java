@@ -7,13 +7,13 @@ class PassagerIndecis extends PassagerAbstrait implements Usager{
 		super(nom,numArret);
 	}
 
-	void choixPlaceMontee(Vehicule v)
+	protected void choixPlaceMontee(Vehicule v)
 	{
 	    if (v.aPlaceDebout())
 		v.monteeDemanderDebout(this);	
 	}
 
-	void choixChangerPlace(Vehicule v, int arret)
+	protected void choixChangerPlace(Vehicule v, int arret)
 	{
 		if(estAssis())
 			v.arretDemanderDebout(this);
