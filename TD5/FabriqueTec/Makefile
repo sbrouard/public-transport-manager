@@ -1,7 +1,7 @@
-TST=TestJauge\
-	TestPosition\
-	TestAutobus\
-	TestPassagerStandard
+TST=tec.TestJauge\
+	tec.TestPosition\
+	tec.TestAutobus\
+	tec.TestPassagerStandard
 
 all: clean
 	javac -d build src/*.java tst/*.java
