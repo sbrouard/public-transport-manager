@@ -15,7 +15,7 @@ public class Autobus extends Vehicule implements Transport{
   {
 	  nb_debout = debout;
 	  nb_assis = assis;
-	  passagers = new Passager[nb_debout+nb_assis];
+	  passagers = new Passager[nb_debout+nb_assis+1];//+1 pour le passager tétu
 	  numero_arret = 0;
 
 	  for(int i=0;i<nb_debout+nb_assis;i++)
@@ -66,12 +66,12 @@ public class Autobus extends Vehicule implements Transport{
 
   void monteeDemanderDebout(Passager p)
   {
-	  if(aPlaceDebout())
-	  {
+	  //if(aPlaceDebout())
+	  //{
 		  p.changerEnDebout();
 		  ajouterPassager(p);
 		  my_debout.incrementer();
-	  }
+	  //}
   }
 
   void arretDemanderDebout(Passager p)
