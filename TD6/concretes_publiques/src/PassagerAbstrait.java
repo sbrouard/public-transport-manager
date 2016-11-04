@@ -4,6 +4,7 @@ abstract public class PassagerAbstrait extends Passager implements Usager{
     private Position pos;
     private String name;
     private int dst;
+    private ComportementArret compArret;
 
     public PassagerAbstrait(String nom, int destination) {
 	name = nom;
@@ -63,8 +64,6 @@ abstract public class PassagerAbstrait extends Passager implements Usager{
     }
 
     abstract protected void choixPlaceMontee(Vehicule v);
-    abstract protected void choixChangerPlace(Vehicule v, int arret);
-    
     
     public String toString() {
 	return name + pos.toString();
