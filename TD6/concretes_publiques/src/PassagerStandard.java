@@ -1,6 +1,6 @@
 package tec;
 
-public class PassagerStandard extends PassagerAbstrait implements Usager{
+public class PassagerStandard extends MonteeRepos implements Usager{
     Position pos;
     String name;
     int dst;
