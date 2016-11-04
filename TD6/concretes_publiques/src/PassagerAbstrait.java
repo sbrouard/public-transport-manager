@@ -59,7 +59,7 @@ abstract public class PassagerAbstrait extends Passager implements Usager{
     
     // Indique au passager qu'il est arrivé à un nouvel arret
     void nouvelArret(Vehicule bus, int numeroArret) {
-	choixChangerPlace(bus,numeroArret);
+	choixChangerPlace(dst-numeroArret, bus, this);
 	if (numeroArret == dst) bus.arretDemanderSortie(this);
     }
 
