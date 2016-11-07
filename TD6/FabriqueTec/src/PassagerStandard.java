@@ -1,6 +1,6 @@
 package tec;
 
-class PassagerStandard extends PassagerAbstrait implements Passager, Usager{
+public class PassagerStandard extends MonteeRepos implements Usager{
     Position pos;
     String name;
     int dst;
@@ -20,4 +20,5 @@ class PassagerStandard extends PassagerAbstrait implements Passager, Usager{
 
 
     protected void choixChangerPlace(Vehicule v, int arret){}
+    
 }
