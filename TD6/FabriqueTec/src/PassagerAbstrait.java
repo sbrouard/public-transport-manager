@@ -1,14 +1,15 @@
 package tec;
 
-abstract public class PassagerAbstrait extends Passager implements Usager{
+abstract public class PassagerAbstrait implements Passager, Usager{
     private Position pos;
     private String name;
     private int dst;
-    private ComportementArret compArret;
+    final private ComportementArret compArret;
 
-    public PassagerAbstrait(String nom, int destination) {
+    public PassagerAbstrait(String nom, int destination,ComportementArret comp) {
 	name = nom;
 	dst = destination;
+	compArret = comp;
 	pos = new Position();
     }
     
@@ -17,32 +18,32 @@ abstract public class PassagerAbstrait extends Passager implements Usager{
     }
 
     // Change la position d'un passager en assis
-    void changerEnAssis() {
+    public void changerEnAssis() {
 	pos = pos.assis();
     }
 
     // Change la position d'un passager en debout
-    void changerEnDebout() {
+    public void changerEnDebout() {
 	pos = pos.debout();
     }
 
     // Change la position d'un passager en dehors
-    void changerEnDehors() {
+    public void changerEnDehors() {
 	pos = pos.dehors();
     }
 
     // Le passager est-il assis dans l'autobus ?
-    boolean estAssis() {
+    public boolean estAssis() {
 	return pos.estAssis();
     }
     
     // Le passager est-il debout dans l'autobus ?
-    boolean estDebout() {
+    public boolean estDebout() {
 	return pos.estDebout();
     }
 
     // Le passager est-il en dehors d'un autobus ?
-    boolean estDehors() {
+    public boolean estDehors() {
 	return pos.estDehors();
     }
 
@@ -58,8 +59,8 @@ abstract public class PassagerAbstrait extends Passager implements Usager{
     }
     
     // Indique au passager qu'il est arrivé à un nouvel arret
-    void nouvelArret(Vehicule bus, int numeroArret) {
-	choixChangerPlace(dst-numeroArret, bus, this);
+    public void nouvelArret(Vehicule bus, int numeroArret) {
+	compArret.choixChangerPlace(dst-numeroArret, bus, this);
 	if (numeroArret == dst) bus.arretDemanderSortie(this);
     }
 
