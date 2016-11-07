@@ -4,11 +4,12 @@ abstract public class PassagerAbstrait extends Passager implements Usager{
     private Position pos;
     private String name;
     private int dst;
-    private ComportementArret compArret;
+    final private ComportementArret compArret;
 
-    public PassagerAbstrait(String nom, int destination) {
+    public PassagerAbstrait(String nom, int destination,ComportementArret comp) {
 	name = nom;
 	dst = destination;
+	compArret = comp;
 	pos = new Position();
     }
     
@@ -59,7 +60,7 @@ abstract public class PassagerAbstrait extends Passager implements Usager{
     
     // Indique au passager qu'il est arrivé à un nouvel arret
     void nouvelArret(Vehicule bus, int numeroArret) {
-	choixChangerPlace(dst-numeroArret, bus, this);
+	compArret.choixChangerPlace(dst-numeroArret, bus, this);
 	if (numeroArret == dst) bus.arretDemanderSortie(this);
     }
 
