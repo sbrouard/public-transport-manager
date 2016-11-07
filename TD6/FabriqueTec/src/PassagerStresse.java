@@ -1,8 +1,8 @@
 package tec;
 
-class PassagerStresse extends PassagerAbstrait implements Passager, Usager{
+class PassagerStresse extends PassagerAbstrait implements Usager{
 
-    PassagerStresse(String nom, int numArret)
+    public PassagerStresse(String nom, int numArret)
     {
 	super(nom,numArret);
     }
