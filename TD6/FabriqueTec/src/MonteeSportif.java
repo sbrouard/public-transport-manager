@@ -1,9 +1,13 @@
 package tec;
 
-class MonteeSportif extends PassagerAbstrait{
+abstract class MonteeSportif extends PassagerAbstrait{
+    
+    public MonteeSportif(String nom, int destination, ComportementArret comp){
+	super(nom,destination,comp);
+    }
 
     protected void choixPlaceMontee(Vehicule v){
-	else if (v.aPlaceDebout())
+	if (v.aPlaceDebout())
 	    v.monteeDemanderDebout(this);
     }
 }
