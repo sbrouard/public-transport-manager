@@ -18,6 +18,11 @@ public class Autobus extends Vehicule implements Transport{
 	  passagers = new Passager[nb_debout+nb_assis+1];//+1 pour le passager tétu
 	  numero_arret = 0;
 
+	  if(assis < 0 || debout < 0)
+	  {
+		throw new java.lang.IllegalArgumentException;
+	  }
+
 	  for(int i=0;i<nb_debout+nb_assis;i++)
 		passagers[i] = null;
 
@@ -53,9 +58,26 @@ public class Autobus extends Vehicule implements Transport{
 		return true;
   }
 
+  boolean isAlreadyIn(Passager p)
+  {
+	  boolean in = false;
+
+	  for(int i=0;i<nb_assis+nb_debout && !in;i++)
+	  {
+		if(passagers[i].equals(p))
+			 in = true;
+	  }
+	  
+	  return in;
+  }
+
+
   // Enregistrements des appels effectues par Passager.
   void monteeDemanderAssis(Passager p)
   {
+  	  if(isAlreadyIn(p))
+		throw new java.lang.IllegalStateException;
+
 	  if(aPlaceAssise())
 	  {
 		  p.changerEnAssis();
@@ -66,6 +88,8 @@ public class Autobus extends Vehicule implements Transport{
 
   void monteeDemanderDebout(Passager p)
   {
+  	  if(isAlreadyIn(p))
+		throw new java.lang.IllegalStateException;
 	  //if(aPlaceDebout())
 	  //{
 		  p.changerEnDebout();
