@@ -2,6 +2,7 @@ import tec.Autobus;
 import tec.PassagerStandard;
 import tec.Usager;
 import tec.Transport;
+import tec.TecInvalidException;
 
 class Simple {
     
@@ -79,7 +80,7 @@ class Simple {
 	*/
     }
     
-    public static void main (String[] args) {
+    public static void main (String[] args) throws TecInvalidException {
   
 	/*rappel pour ne pas oublier -ea */
 	 boolean estMisAssertion = false;
@@ -90,6 +91,9 @@ class Simple {
 	 }
 	
 	 Simple test1 = new Simple();
+	try{
 	 test1.testIntegration();
+}catch (TecInvalidException e) {
+	}
     }
 }
