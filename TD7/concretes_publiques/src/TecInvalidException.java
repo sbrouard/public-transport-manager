@@ -1,6 +1,6 @@
 package tec;
 
-class TecInvalidException extends Exception {
+public class TecInvalidException extends Exception {
     
     public TecInvalidException(String msg){
 	System.out.println("TecInvalidException : " + msg);
