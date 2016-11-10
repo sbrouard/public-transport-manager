@@ -2,6 +2,14 @@ package tec;
 
 public class TestJauge {
 
+    public void testExceptionCasLimite() {
+	Jauge inverse = null;
+	
+	inverse = new Jauge(-42, -10);
+	System.out.println("vert: " + inverse.estVert());
+	System.out.println("rouge: " + inverse.estRouge());
+    }
+
 	public static void testDansIntervalle()
 	{
 		Jauge j = new Jauge(67899, 100);
