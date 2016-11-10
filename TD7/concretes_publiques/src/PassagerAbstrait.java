@@ -7,6 +7,9 @@ abstract public class PassagerAbstrait extends Passager implements Usager{
     final private ComportementArret compArret;
 
     public PassagerAbstrait(String nom, int destination,ComportementArret comp) {
+	if(destination <0){
+	    throw new IllegalArgumentException("destination must be >= 0");
+	}
 	name = nom;
 	dst = destination;
 	compArret = comp;
