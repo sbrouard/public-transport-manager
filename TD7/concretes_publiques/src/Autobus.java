@@ -20,7 +20,7 @@ public class Autobus extends Vehicule implements Transport{
 
 	  if(assis < 0 || debout < 0)
 	  {
-		throw new java.lang.IllegalArgumentException;
+	      throw new java.lang.IllegalArgumentException("assis or debout must be >0");
 	  }
 
 	  for(int i=0;i<nb_debout+nb_assis;i++)
@@ -76,7 +76,7 @@ public class Autobus extends Vehicule implements Transport{
   void monteeDemanderAssis(Passager p)
   {
   	  if(isAlreadyIn(p))
-		throw new java.lang.IllegalStateException;
+	      throw new java.lang.IllegalStateException("Passager must not be already in");
 
 	  if(aPlaceAssise())
 	  {
@@ -89,7 +89,7 @@ public class Autobus extends Vehicule implements Transport{
   void monteeDemanderDebout(Passager p)
   {
   	  if(isAlreadyIn(p))
-		throw new java.lang.IllegalStateException;
+	      throw new java.lang.IllegalStateException("Passager must not be already in");
 	  //if(aPlaceDebout())
 	  //{
 		  p.changerEnDebout();
