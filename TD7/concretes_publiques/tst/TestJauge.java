@@ -3,11 +3,15 @@ package tec;
 public class TestJauge {
 
     public void testExceptionCasLimite() {
-	Jauge inverse = null;
-	
-	inverse = new Jauge(-42, -10);
-	System.out.println("vert: " + inverse.estVert());
-	System.out.println("rouge: " + inverse.estRouge());
+	    Jauge inverse = null;
+	    try {
+		inverse = new Jauge(-42, -10);
+		System.out.println("vert: " + inverse.estVert());
+		System.out.println("rouge: " + inverse.estRouge());
+		assert false: "Exception non levee";
+	    }
+	    catch(IllegalArgumentException e){
+	    }
     }
 
 	public static void testDansIntervalle()
