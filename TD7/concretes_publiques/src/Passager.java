@@ -1,4 +1,4 @@
-Ppackage tec;
+package tec;
 
 abstract class Passager {
     abstract boolean estDehors();
