@@ -51,9 +51,18 @@ abstract public class PassagerAbstrait extends Passager implements Usager{
     }
 
     // Fournit a un passager l'autobus auquel il peut accéder
-    public void monterDans(Transport b) {
+    public void monterDans(Transport b) throws TecInvalidException{
 	Vehicule t = (Vehicule) b;
-	choixPlaceMontee(t);
+	if (!(t instanceof Vehicule))
+	    throw new TecInvalidException("Error type conversion");
+	try{
+	    choixPlaceMontee(t);
+	}
+	catch(IllegalStateException e)
+	    {
+		throw new TecInvalidException(e);
+	    }
+	    
     }
 
     // Fournit le nom d'un passager
