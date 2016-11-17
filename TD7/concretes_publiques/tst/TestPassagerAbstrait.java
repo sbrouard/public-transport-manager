@@ -40,5 +40,5 @@ abstract public class TestPassagerAbstrait {
     
     public abstract void testInteractionArret();
 
-    public abstract void testInteractionMontee();
+    public abstract void testInteractionMontee() throws TecInvalidException;
 }

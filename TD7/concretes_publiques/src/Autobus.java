@@ -64,7 +64,7 @@ public class Autobus extends Vehicule implements Transport{
 
 	  for(int i=0;i<nb_assis+nb_debout && !in;i++)
 	  {
-		if(passagers[i].equals(p))
+		if(passagers[i]!=null && passagers[i].equals(p))
 			 in = true;
 	  }
 	  

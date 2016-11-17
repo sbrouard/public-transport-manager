@@ -29,7 +29,7 @@ public class TestPassagerStandard extends TestPassagerAbstrait {
      *  - pas de place assise
      *  - aucune place. 
      */
-    public void testInteractionMontee() {
+    public void testInteractionMontee() throws TecInvalidException{
 	PassagerAbstrait p = creerPassager("yyy", 5);
 	
 	FauxVehicule faux = new FauxVehicule(FauxVehicule.VIDE);
@@ -48,7 +48,7 @@ public class TestPassagerStandard extends TestPassagerAbstrait {
 	assert 0 == faux.messages.size() : "pas de place";        
     }
 
-        public static void main (String[] args) {
+        public static void main (String[] args) throws TecInvalidException{
 	boolean estMisAssertion = false;
 	assert estMisAssertion = true;
 	

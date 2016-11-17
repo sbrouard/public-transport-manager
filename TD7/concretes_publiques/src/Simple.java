@@ -6,7 +6,7 @@ import tec.TecInvalidException;
 
 class Simple {
     
-    public void testIntegration() {
+    public void testIntegration() throws TecInvalidException {
 	Transport serenity = new Autobus(1, 2);
 	
 	Usager kaylee = new PassagerStandard("Kaylee", 4);
@@ -91,9 +91,7 @@ class Simple {
 	 }
 	
 	 Simple test1 = new Simple();
-	try{
 	 test1.testIntegration();
-}catch (TecInvalidException e) {
-	}
+
     }
 }
