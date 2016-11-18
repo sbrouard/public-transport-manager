@@ -1,5 +1,5 @@
 package tec;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Autobus extends Vehicule implements Transport{
@@ -9,7 +9,7 @@ public class Autobus extends Vehicule implements Transport{
   private Jauge my_assis;
   private int nb_debout;
   private int nb_assis;
-  private LinkedList passagers;
+  private ArrayList passagers;
 
   final Messages messages = new Messages();
 
@@ -18,7 +18,7 @@ public class Autobus extends Vehicule implements Transport{
 	  nb_debout = debout;
 	  nb_assis = assis;
 	  //passagers = new Passager[nb_debout+nb_assis+1];//+1 pour le passager tétu
-	  passagers = new LinkedList();
+	  passagers = new ArrayList();
 	  numero_arret = 0;
 
 	  if(assis < 0 || debout < 0)
@@ -165,10 +165,12 @@ public class Autobus extends Vehicule implements Transport{
   public void allerArretSuivant()
   { 
 	  numero_arret++;
-	  Iterator i = this.passagers.iterator();
+	  ArrayList cl = (ArrayList) passagers.clone();
+	  Iterator i = cl.iterator();
 	  Passager p;
 	  while(i.hasNext()){
 	      p = (Passager)i.next();
+	      p = (Passager)passagers.get(passagers.indexOf(p));
 	      p.nouvelArret(this, numero_arret);
 	  }
 	  /*for(int i=0;i<nb_assis+nb_debout+1;i++)
