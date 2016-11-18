@@ -3,7 +3,14 @@ package tec;
 abstract public class TestPassagerAbstrait {
    
     abstract protected PassagerAbstrait creerPassager(String nom, int destination);
- 
+    
+    public void testException() {
+	try{
+            PassagerAbstrait p = creerPassager("p1", -1);
+            assert false: "Exception non levee";
+	}catch(IllegalArgumentException e)
+	{}
+    }
     /* Etat apres instanciation
      * Un seul cas 
      */

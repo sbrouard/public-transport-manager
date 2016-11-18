@@ -368,4 +368,33 @@ public class TestAutobus {
 	: "mauvais appel pour " + i;
     }
   }
+
+  public void testIllegalArgumentException()
+  {
+    try{
+    	Autobus bus = new Autobus(-1, 66);
+        assert false: "Exception non levee";
+    }catch(IllegalArgumentException e)
+    {}
+
+    try{
+    	Autobus bus = new Autobus(66, -1);
+        assert false: "Exception non levee";
+    }catch(IllegalArgumentException e)
+    {}
+  }
+
+  public void testIllegalStateException()
+  {
+     Autobus bus = new Autobus(99, 66);
+     FauxPassager faux = new FauxPassager();
+
+     try{
+       bus.monteeDemanderAssis(faux);
+       bus.monteeDemanderAssis(faux);
+       assert false: "Exception non levee";
+     }catch(IllegalStateException e)
+     {}
+  }
+    
 }
