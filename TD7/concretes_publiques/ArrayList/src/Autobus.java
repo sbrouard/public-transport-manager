@@ -165,10 +165,12 @@ public class Autobus extends Vehicule implements Transport{
   public void allerArretSuivant()
   { 
 	  numero_arret++;
-	  Iterator i = this.passagers.iterator();
+	  ArrayList cl = (ArrayList) passagers.clone();
+	  Iterator i = cl.iterator();
 	  Passager p;
 	  while(i.hasNext()){
 	      p = (Passager)i.next();
+	      p = (Passager)passagers.get(passagers.indexOf(p));
 	      p.nouvelArret(this, numero_arret);
 	  }
 	  /*for(int i=0;i<nb_assis+nb_debout+1;i++)
