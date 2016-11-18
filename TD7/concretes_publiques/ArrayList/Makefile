@@ -8,6 +8,11 @@ all: clear
 	java -ea -cp build tec.LancerTests $(TST)
 	java -ea -cp build Simple
 
+debug: clear
+	javac -g -d build src/*.java tst/*.java
+	java -ea -cp build tec.LancerTests $(TST)
+	jdb -ea -cp build Simple
+
 clear:
 	rm -rf build*/*
 	rm -rf src/#* src/*~

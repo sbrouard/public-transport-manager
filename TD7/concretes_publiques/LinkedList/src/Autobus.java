@@ -1,13 +1,15 @@
 package tec;
+import java.util.LinkedList;
+import java.util.Iterator;
 
 public class Autobus extends Vehicule implements Transport{
   private int numero_arret;
-  private Passager[] passagers;
+    //private Passager[] passagers;
   private Jauge my_debout;
   private Jauge my_assis;
   private int nb_debout;
   private int nb_assis;
-
+  private LinkedList passagers;
 
   final Messages messages = new Messages();
 
@@ -15,7 +17,8 @@ public class Autobus extends Vehicule implements Transport{
   {
 	  nb_debout = debout;
 	  nb_assis = assis;
-	  passagers = new Passager[nb_debout+nb_assis+1];//+1 pour le passager tétu
+	  //passagers = new Passager[nb_debout+nb_assis+1];//+1 pour le passager tétu
+	  passagers = new LinkedList();
 	  numero_arret = 0;
 
 	  if(assis < 0 || debout < 0)
@@ -23,8 +26,8 @@ public class Autobus extends Vehicule implements Transport{
 	      throw new java.lang.IllegalArgumentException("assis or debout must be >0");
 	  }
 
-	  for(int i=0;i<nb_debout+nb_assis;i++)
-		passagers[i] = null;
+	  /*for(int i=0;i<nb_debout+nb_assis;i++)
+	    passagers[i] = null;*/
 
 	  if(debout <= 0)
 		my_debout = null;
@@ -60,7 +63,8 @@ public class Autobus extends Vehicule implements Transport{
 
   boolean isAlreadyIn(Passager p)
   {
-	  boolean in = false;
+      return this.passagers.contains(p);
+      /*boolean in = false;
 
 	  for(int i=0;i<nb_assis+nb_debout && !in;i++)
 	  {
@@ -68,7 +72,7 @@ public class Autobus extends Vehicule implements Transport{
 			 in = true;
 	  }
 	  
-	  return in;
+	  return in;*/
   }
 
 
@@ -137,33 +141,41 @@ public class Autobus extends Vehicule implements Transport{
 
   private void ajouterPassager(Passager p)
   {
-	int i;
+      this.passagers.add(p);
+      /*int i;
 
 	for(i=0;passagers[i]!=null;i++);
 
-	passagers[i] = p;
+	passagers[i] = p;*/
   }
 
   private void enleverPassager(Passager p)
   {
-	  int decal = 0;
+      this.passagers.remove(p);
+      /*int decal = 0;
 	  int i;
 
 	  for(i=0;passagers[i]!=p;i++);
 		
 
-	  passagers[i] = null;
+	  passagers[i] = null;*/
   }
 
   // Passager n'utilise pas cette méthode.
   public void allerArretSuivant()
   { 
 	  numero_arret++;
-	  for(int i=0;i<nb_assis+nb_debout;i++)
+	  Iterator i = this.passagers.iterator();
+	  Passager p;
+	  while(i.hasNext()){
+	      p = (Passager)i.next();
+	      p.nouvelArret(this, numero_arret);
+	  }
+	  /*for(int i=0;i<nb_assis+nb_debout+1;i++)
 	  {
 		if(passagers[i] != null)
 			 passagers[i].nouvelArret(this,numero_arret);
-	  }
+			 }*/
   }
 
   @Override

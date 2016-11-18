@@ -18,7 +18,7 @@ public class Autobus extends Vehicule implements Transport{
 	  nb_debout = debout;
 	  nb_assis = assis;
 	  //passagers = new Passager[nb_debout+nb_assis+1];//+1 pour le passager tétu
-	  passagers = new ArrayList(nb_debout+nb_assis+1);
+	  passagers = new ArrayList();
 	  numero_arret = 0;
 
 	  if(assis < 0 || debout < 0)
@@ -63,7 +63,7 @@ public class Autobus extends Vehicule implements Transport{
 
   boolean isAlreadyIn(Passager p)
   {
-      this.passagers.contains(p);
+      return this.passagers.contains(p);
       /*boolean in = false;
 
 	  for(int i=0;i<nb_assis+nb_debout && !in;i++)
@@ -165,9 +165,12 @@ public class Autobus extends Vehicule implements Transport{
   public void allerArretSuivant()
   { 
 	  numero_arret++;
-	  Iterator iterator = this.passagers.iterator();
-	  while(iterator.hasNext())
-	      iterator.next().nouvelArret(this,numero_arret);
+	  Iterator i = this.passagers.iterator();
+	  Passager p;
+	  while(i.hasNext()){
+	      p = (Passager)i.next();
+	      p.nouvelArret(this, numero_arret);
+	  }
 	  /*for(int i=0;i<nb_assis+nb_debout+1;i++)
 	  {
 		if(passagers[i] != null)
