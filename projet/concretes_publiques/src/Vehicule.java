@@ -10,4 +10,5 @@ abstract class Vehicule{
     
     abstract boolean aPlaceAssise();
     abstract boolean aPlaceDebout();
+    abstract void allerArretSuivant();
 }
