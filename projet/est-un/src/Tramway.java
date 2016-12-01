@@ -137,29 +137,18 @@ public class Tramway extends Vehicule implements Transport{
   // Passager n'utilise pas cette méthode.
   public void allerArretSuivant()
   { 
-	  numero_arret++;
-	  ArrayList cl = (ArrayList) passagers.clone();
-	  Iterator<Passager> i = cl.iterator();
-	  Passager p;
-	  while(i.hasNext()){
-	      p = i.next();
-	      p = passagers.get(passagers.indexOf(p));
-	      p.nouvelArret(this, numero_arret);
-	  }
+      numero_arret++;
+      System.out.println("ARRET SUIVANT, PASSEZ UNE BONNE JOURNEE !!");
+      ArrayList cl = (ArrayList) passagers.clone();
+      Iterator<Passager> i = cl.iterator();
+      Passager p;
+      while(i.hasNext()){
+	  p = i.next();
+	  p = passagers.get(passagers.indexOf(p));
+	  p.nouvelArret(this, numero_arret);
+      }
   }
 
-    public void allerArretSuivant(Greffon g)
-    { 
-	numero_arret++;
-	ArrayList cl = (ArrayList) passagers.clone();
-	Iterator<Passager> i = cl.iterator();
-	Passager p;
-	while(i.hasNext()){
-	    p = i.next();
-	    p = passagers.get(passagers.indexOf(p));
-	    p.nouvelArret(g, numero_arret);
-	  }
-    }
     
   @Override
   public String toString()

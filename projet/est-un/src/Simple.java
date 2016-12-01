@@ -4,7 +4,7 @@ import tec.Usager;
 import tec.Transport;
 import tec.TecInvalidException;
 import tec.CollecteFichier;
-import tec.Greffon;
+import tec.GreffonAutobus;
 
 class Simple {
     
@@ -83,7 +83,7 @@ class Simple {
     }
 
     public void testIntegrationCollecteFichier() throws TecInvalidException {
-	Transport serenity = new Greffon(new Autobus(1, 2), new CollecteFichier("log.txt"));
+	Transport serenity = new GreffonAutobus(1, 2, new CollecteFichier("log.txt"));
 	
 	Usager kaylee = new PassagerStandard("Kaylee", 4);
 	Usager jayne = new PassagerStandard("Jayne", 4);
