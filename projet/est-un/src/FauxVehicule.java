@@ -78,6 +78,4 @@ class FauxVehicule extends Vehicule implements Transport{
     public void allerArretSuivant() { 
     }
 
-    public void allerArretSuivant(Greffon g){
-    }
 }
