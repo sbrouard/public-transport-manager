@@ -3,13 +3,11 @@ import tec.PassagerStandard;
 import tec.Usager;
 import tec.Transport;
 import tec.TecInvalidException;
-import tec.Greffon;
 
 class Simple {
     
     public void testIntegration() throws TecInvalidException {
-	Transport serenity2 = new Autobus(1, 2);
-	Transport serenity = new Greffon(serenity2);
+	Transport serenity = new Autobus(1, 2);
 	
 	Usager kaylee = new PassagerStandard("Kaylee", 4);
 	Usager jayne = new PassagerStandard("Jayne", 4);
