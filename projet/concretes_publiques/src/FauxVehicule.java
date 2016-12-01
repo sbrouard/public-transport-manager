@@ -77,4 +77,7 @@ class FauxVehicule extends Vehicule implements Transport{
   // PassagerStandard n'utilise pas cette méthode.
     public void allerArretSuivant() { 
     }
+
+    public void allerArretSuivant(Greffon g){
+    }
 }

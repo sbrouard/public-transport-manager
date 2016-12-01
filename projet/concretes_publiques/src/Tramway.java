@@ -148,6 +148,19 @@ public class Tramway extends Vehicule implements Transport{
 	  }
   }
 
+    public void allerArretSuivant(Greffon g)
+    { 
+	numero_arret++;
+	ArrayList cl = (ArrayList) passagers.clone();
+	Iterator<Passager> i = cl.iterator();
+	Passager p;
+	while(i.hasNext()){
+	    p = i.next();
+	    p = passagers.get(passagers.indexOf(p));
+	    p.nouvelArret(g, numero_arret);
+	  }
+    }
+    
   @Override
   public String toString()
   {
