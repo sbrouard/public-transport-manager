@@ -2,7 +2,7 @@ package tec;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Autobus extends Vehicule implements Transport{
+public class Tramway extends Vehicule implements Transport{
   private int numero_arret;
   private Jauge my_debout;
   private Jauge my_assis;
