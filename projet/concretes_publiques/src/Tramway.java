@@ -12,7 +12,7 @@ public class Tramway extends Vehicule implements Transport{
 
   final Messages messages = new Messages();
 
-  public Autobus(int assis, int debout)
+  public Tramway(int assis, int debout)
   {
 	  nb_debout = debout;
 	  nb_assis = assis;
