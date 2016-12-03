@@ -7,6 +7,7 @@ import tec.CollecteFichier;
 import tec.Greffon;
 import tec.CollecteCollection;
 import tec.Collecte;
+import tec.Tramway;
 
 class Simple {
     
@@ -161,7 +162,7 @@ class Simple {
     public void testIntegrationCollecteCollection() throws TecInvalidException {
     
 	CollecteCollection c = new CollecteCollection();
-	Transport serenity = new Greffon(new Autobus(1, 2), c);
+	Transport serenity = new Greffon(new Tramway(1, 2), c);
 	
 	Usager kaylee = new PassagerStandard("Kaylee", 4);
 	Usager jayne = new PassagerStandard("Jayne", 4);
