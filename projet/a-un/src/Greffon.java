@@ -2,8 +2,8 @@ package tec;
 
 public class Greffon extends Vehicule implements Transport {
 
-    Vehicule v;
-    Collecte c;
+    private Vehicule v;
+    private Collecte c;
 
     public Greffon(Transport t, Collecte c){
 	v = (Vehicule) t;

@@ -1,6 +1,6 @@
 package tec;
 
-interface Collecte {
+public interface Collecte {
 
     public void uneEntree();
     public void uneSortie();
