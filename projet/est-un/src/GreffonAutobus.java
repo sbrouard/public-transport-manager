@@ -3,7 +3,7 @@ package tec;
 public class GreffonAutobus extends Autobus {
 
     
-    Collecte c;
+    private Collecte c;
 
     public GreffonAutobus(int assis, int debout, Collecte c){
 	super(assis, debout);

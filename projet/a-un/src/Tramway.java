@@ -138,6 +138,7 @@ public class Tramway extends Vehicule implements Transport{
   public void allerArretSuivant()
   { 
 	  numero_arret++;
+	  System.out.println("ARRET SUIVANT, PASSEZ UNE BONNE JOURNEE !!");
 	  ArrayList cl = (ArrayList) passagers.clone();
 	  Iterator<Passager> i = cl.iterator();
 	  Passager p;
@@ -151,6 +152,7 @@ public class Tramway extends Vehicule implements Transport{
     public void allerArretSuivant(Greffon g)
     { 
 	numero_arret++;
+	System.out.println("ARRET SUIVANT, PASSEZ UNE BONNE JOURNEE !!");
 	ArrayList cl = (ArrayList) passagers.clone();
 	Iterator<Passager> i = cl.iterator();
 	Passager p;
