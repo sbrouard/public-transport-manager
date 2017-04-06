@@ -1,0 +1,1 @@
+This school porject was conduct in the form of 7 min-projects made to learn OOP and Java, and a bigger project where we created manamgment system for public transport, with different kind of transports and the passegers's behaviors.
